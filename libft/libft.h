@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 21:04:28 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/08/03 22:08:13 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/08/20 21:04:58 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+t_list				*ft_lstpop_back(t_list **lst);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 int					ft_lstsize(t_list *lst);
+
 
 void				*ft_calloc(size_t count, size_t size);
 void				ft_free_tab(char ***tab);
@@ -53,6 +55,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 char				*ft_strdup(const char *s1);
 char				*ft_strchr(const char *s, int c);
+int					ft_strchr_gnl(char *s);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
@@ -73,6 +76,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
+int					ft_isstr(char c, char *str);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);

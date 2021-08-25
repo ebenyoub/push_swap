@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstpop_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 13:08:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/08/20 21:05:01 by ebenyoub         ###   ########lyon.fr   */
+/*   Created: 2021/08/25 20:22:26 by ebenyoub          #+#    #+#             */
+/*   Updated: 2021/08/25 20:23:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "libft.h"
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstpop_back(t_list **lst)
 {
-	int i;
+	t_list	*tmp;
+	t_list	*before;
 
-	i = 0;
-	while (s[i] != (unsigned char)c)
-		if (!s[i])
-			return (0);
-		else
-			i++;
-	return ((char *)s + i);
-}
-
-int		ft_strchr_gnl(char *s)
-{
-	int		i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] && (s[i] != '\n'))
-		i++;
-	if (s[i] == '\n')
-		return (1);
-	return (0);
+	if (*lst == NULL)
+		return (NULL);
+	tmp = *lst;
+	before = *lst;
+	if (!tmp->next)
+	{
+		free(tmp);
+		tmp = NULL;
+		return (NULL);
+	}
+	while (tmp->next)
+	{
+		before = tmp;
+		tmp = tmp->next;
+	}
+	before->next = NULL;
+	free(tmp);
+	tmp = NULL;
+	return (*lst);
 }

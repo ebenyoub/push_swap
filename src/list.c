@@ -12,18 +12,18 @@
 
 # include "../inc/push_swap.h"
 
-t_list		*create_list(int argc, char **argv)
+t_list		*create_list(int argc, t_var *var)
 {
 	t_list		*tmp;
 	t_list		*new_element;
-	void		*ptr;
-	int			i;
+	int		*ptr;
+	int		i;
 
-	i = 1;
+	i = 0;
 	tmp = NULL;
-	while (i < argc)
+	while (i < argc - 1)
 	{
-		ptr = &*argv[i];
+		ptr = &var->a[i];
 		new_element = ft_lstnew(ptr);
 		ft_lstadd_back(&tmp, new_element);
 		i++;
@@ -31,14 +31,10 @@ t_list		*create_list(int argc, char **argv)
 	return (tmp);
 }
 
-bool    is_empty_list(t_list **li)
-{
-	return (*li == NULL ? true : false);
-}
-
 void    print_list(t_list **li)
 {
 	t_list	*tmp;
+	int	*n;
 
 	tmp = *li;
 	if (tmp == NULL)
@@ -50,42 +46,13 @@ void    print_list(t_list **li)
 	{
 		while (tmp)
 		{
+			n = tmp->content;
 			ft_putstr("[");
-			ft_putstr((char *)tmp->content);
+			ft_putnbr(*n);
 			ft_putstr("] ");
 			tmp = tmp->next;
 		}
-		printf("\n");
+		ft_putstr("\n");
 	}
 }
 
-void	del(void *content)
-{
-	content = NULL;
-}
-
-t_list	*ft_lstpop_back(t_list **lst)
-{
-	t_list	*tmp;
-	t_list	*before;
-	
-	if (*lst == NULL)
-		return (NULL);
-	tmp = *lst;
-	before = *lst;
-	if (!tmp->next)
-	{
-		free(tmp);
-		tmp = NULL;
-		return (NULL);
-	}
-	while (tmp->next)
-	{
-		before = tmp;
-		tmp = tmp->next;
-	}
-	before->next = NULL;
-	free(tmp);
-	tmp = NULL;
-	return (*lst);
-}

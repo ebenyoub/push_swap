@@ -15,19 +15,12 @@
 int     main(int argc, char **argv)
 {
 	t_list		*list;
-	t_stack		*stack;
+	t_var		*var;
 
-	stack = NULL;
-	if (!(stack = malloc(sizeof(stack))))
-	{
-		ft_putstr("Error : probleme allocation dynamique.\n");
-		exit (EXIT_FAILURE);
-	}
-	param_chekin(argc, argv);
-	if (!(param_duplicate(argc, argv)))
-		exit (EXIT_FAILURE);
-	init_stack(stack, argc, argv);
-	list = create_list(argc, argv);
+	!(var = malloc(sizeof(var))) ? exit(4) : 0;
+	param_convert(argc, argv, var);
+	push_checkin(argc, argv);
+	list = create_list(argc, var);
 	print_list(&list);
 	return (0);
 }

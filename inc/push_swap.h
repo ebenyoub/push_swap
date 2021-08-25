@@ -16,32 +16,22 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include "../libft/libft.h"
+# define BUFF 10
 
-typedef     enum
-{
-	true,
-	false
-}			bool;
-
-typedef struct		s_first
-{
-	t_list			*first;
-}					t_first;
-
-typedef struct      s_stack
+typedef struct      s_var
 {
 	int     *a;
-	int     *b;
-}                   t_stack;
+}                   t_var;
 
-bool    is_empty_list(t_list **li);
+t_list	*create_list(int argc, t_var *var);
+
+int     get_next_line(int fd, char **line);
+void	find_msg(int i);
+void	m_exit(int i);
+void	push_checkin(int argc, char **argv);
 void    print_list(t_list **li);
-void	del(void *content);
-t_list	*ft_lstpop_back(t_list **lst);
-t_list	*create_list(int argc, char **argv);
-void    param_chekin(int argc, char **argv);
-int		param_duplicate(int argc, char **argv);
-void    init_stack(t_stack *sta, int argc, char **argv);
+void	param_convert(int argc, char **argv, t_var *var);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 15:02:50 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/08/19 19:37:03 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/08/20 21:09:10 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,14 @@ void     param_chekin(int argc, char **argv)
 			i++;
 		while (argv[a][i])
 		{
-			if (!ft_isdigit(argv[a][i]))
-			{
-				ft_putstr("Error : parameters must be integers.\n");
-				exit (EXIT_FAILURE);
-			}
+			(!ft_isdigit(argv[a][i])) ? m_exit(1) : 0;
 			i++;
 		}
 		a++;
 	}
 }
 
-int	param_duplicate(int argc, char **argv)
+void	param_duplicate(int argc, char **argv)
 {
 	int	    i;
 	int		j;
@@ -47,14 +43,29 @@ int	param_duplicate(int argc, char **argv)
 		i = 1 + j;
 		while (argv[i + 1] && i < argc)
 		{
-			if (ft_strcmp(argv[i + 1], argv[j + 1]) == 0)
-			{
-				ft_putstr("La liste comporte des doublons.\n");
-				exit (EXIT_FAILURE);
-			}
+			(!ft_strcmp(argv[i + 1], argv[j + 1])) ? m_exit(2) : 0;
 			i++;
 		}
 		j++;
 	}
-	return (1);
+}
+
+void	param_convert(int argc, char **argv, t_var *var)
+{
+    int i;
+    
+    i = 0;
+    (!(var->a = malloc(sizeof(int) * (argc - 1)))) ? m_exit(4) : 0;
+    while (i < argc - 1)
+    {
+	var->a[i] = atoi((const char *)argv[i + 1]);
+	i++;
+    }
+}
+
+
+void	push_checkin(int argc, char **argv)
+{
+    param_chekin(argc, argv);
+    param_duplicate(argc, argv);
 }
