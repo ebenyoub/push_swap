@@ -1,5 +1,0 @@
-0 Error\nProbleme allocation dynamique.\n
-1 Error\nParameters must be integers.\n
-2 Error\nLa liste comporte des doublons.\n
-3 Error\nmalloc() in init_stack().\n
-4 Error\nmalloc() in good_settings\n
