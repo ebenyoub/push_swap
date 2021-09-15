@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/14 22:27:25 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/15 20:34:11 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	param_duplicate(int argc, char **argv)
 	while (argv[j] && j < argc)
 	{
 		i = 1 + j;
-		while (argv[i + 1] && i < argc)
+		while (argv[i] && i < argc)
 		{
-			(!ft_strcmp(argv[i + 1], argv[j + 1])) ? m_exit() : 0;
+			(!ft_strcmp(argv[i], argv[j])) ? m_exit() : 0;
 			i++;
 		}
 		j++;
@@ -68,12 +68,11 @@ void    param_init(int *argc, char **argv, t_var **var)
 	i = 0;
 	!(*var = (t_var *)malloc(sizeof(t_var))) ? m_exit() : 0;
 	if (*argc == 2)
-	{
 		param = ft_split((const char *)argv[1], ' ');
-	}
 	else
 		param = &argv[1];
 	*argc = param_size(param);
+	param_chekin(*argc, param);
 	!((*var)->tab = (int *)malloc(sizeof(int) * (*(argc)))) ? m_exit() : 0;
 	while (i < *argc)
 	{
@@ -81,6 +80,5 @@ void    param_init(int *argc, char **argv, t_var **var)
 		i++;
 	}
 	(*var)->rr = true;
-	param_chekin(*argc, param);
 	param_duplicate(*argc, param);
 }

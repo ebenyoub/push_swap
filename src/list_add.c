@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/15 13:07:34 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/15 20:51:47 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,21 @@ void    lstadd_back(t_list *lst, void *content)
 
 void	lstpop_front(t_list *lst)
 {
-	if (!lst->begin || !lst->begin->next)
+	t_node	*tmp;
+
+	if (!lst->begin)
 		return;
+	if (!lst->begin->next)
+	{
+		free(lst->begin);
+		lst->begin = NULL;
+		return ;
+	}
+	tmp = lst->begin;
 	lst->begin = lst->begin->next;
-	free(lst->begin->back);
 	lst->begin->back = NULL;
+	free(tmp);
+	tmp = NULL;
 }
 
 void	lstpop_back(t_list *lst)
