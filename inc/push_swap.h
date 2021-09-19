@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/15 01:06:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/19 17:13:43 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 void    m_exit(void);
 void    param_init(int *argc, char **argv, t_var **var);
+void    sort_three(t_var *var);
+void	sort_five(t_var *var);
+
 void    swp_sa(t_var *var);
 void    swp_sb(t_var *var);
 void    swp_ss(t_var *var);
