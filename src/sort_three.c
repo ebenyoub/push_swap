@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 15:32:15 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/20 15:04:09 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 00:09:30 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    sort_apply_next(t_var *var)
     }
 }
 
-void    sort_apply(t_var *var)
+void    sort_three(t_var *var)
 {
     if (A->be->nb > A->be->next->nb 
         && A->be->nb < A->end->nb
@@ -47,12 +47,7 @@ void    sort_apply(t_var *var)
         sort_apply_next(var);
 }
 
-void    sort_three(t_var *var)
+void    sort_two(t_var *var)
 {
-    if (is_sorted_lst(A->be))
-    {
-        fprintf(stderr, "sorted\n");
-        return ;
-    }
-    sort_apply(var);
+    A->be->nb > A->be->next->nb ? swp_sa(var) : 0;
 }

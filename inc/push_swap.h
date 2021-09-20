@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/20 15:08:01 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 00:09:51 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 void    m_exit(void);
 void    param_init(int *argc, char **argv, t_var **var);
+void    sort_two(t_var *var);
 void    sort_three(t_var *var);
 void	sort_five(t_var *var);
+void	sort_four(t_var *var);
 
 void    swp_sa(t_var *var);
 void    swp_sb(t_var *var);
@@ -91,6 +93,6 @@ void	lstpop_back(t_list *lst);
 void    lstadd_front(t_list *lst, t_node *new);
 void    lstadd_back(t_list *lst, int nb);
 void    print_lst(t_node *lst);
-int		is_sorted_lst(t_node *lst);
+bool	is_sorted_lst(t_node *lst);
 
 # endif

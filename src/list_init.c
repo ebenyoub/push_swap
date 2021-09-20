@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 12:57:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/19 23:26:53 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 00:26:20 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ t_node  *new_element(int nb)
 	t_node  *new;
 
 	!(new = (t_node *)malloc(sizeof(t_node))) ? m_exit() : 0;
-	if (nb)
-	{
-		new->next = NULL;
-		new->back = NULL;
-		new->nb = nb;
-		return (new);
-	}
-	return (NULL);
+	new->next = NULL;
+	new->back = NULL;
+	new->nb = nb;
+	return (new);
 }
 
 t_list     *new_list()
