@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/15 20:51:47 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/19 23:26:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,33 @@ void    lstadd_front(t_list *lst, t_node *new)
 {
 	if (new)
 	{
-		if (!lst->begin)
+		if (!lst->be)
 		{
 			lst->length = 0; 
-			lst->begin = new;
+			lst->be = new;
 			lst->end = new;
 		}
 		else
 		{
-			lst->begin->back = new;
-			new->next = lst->begin;
-			lst->begin = new;
+			lst->be->back = new;
+			new->next = lst->be;
+			lst->be = new;
 		}
 		lst->length++;
 	}
 }
 
-void    lstadd_back(t_list *lst, void *content)
+void    lstadd_back(t_list *lst, int nb)
 {
 	t_node	*new;
 
-	new = new_element(content);
+	new = new_element(nb);
 	if (new)
 	{
-		if (!lst->begin)
+		if (!lst->be)
 		{
 			lst->length = 0;
-			lst->begin = new;
+			lst->be = new;
 			lst->end = new;
 		}
 		else
@@ -59,24 +59,24 @@ void	lstpop_front(t_list *lst)
 {
 	t_node	*tmp;
 
-	if (!lst->begin)
+	if (!lst->be)
 		return;
-	if (!lst->begin->next)
+	if (!lst->be->next)
 	{
-		free(lst->begin);
-		lst->begin = NULL;
+		free(lst->be);
+		lst->be = NULL;
 		return ;
 	}
-	tmp = lst->begin;
-	lst->begin = lst->begin->next;
-	lst->begin->back = NULL;
+	tmp = lst->be;
+	lst->be = lst->be->next;
+	lst->be->back = NULL;
 	free(tmp);
 	tmp = NULL;
 }
 
 void	lstpop_back(t_list *lst)
 {
-	if (!lst->begin)
+	if (!lst->be)
 		return;
 	lst->end = lst->end->back;
 	free(lst->end->next);

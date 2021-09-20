@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/15 01:12:18 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 15:04:29 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,38 @@ void    psh_pb(t_var *var)
 {
 	t_node	*new;
 
-	if (!var->lst_a->begin)
+	if (!A->be)
 		return ;
-	new = new_element(var->lst_a->begin->content);
-	lstpop_front(var->lst_a);
-	if (!var->lst_b->begin)
+	new = new_element(A->be->nb);
+	lstpop_front(A);
+	if (!B->be)
 	{
-		var->lst_b->begin = new;
-		var->lst_b->end = new;
+		B->be = new;
+		B->end = new;
 	}
 	else
-		lstadd_front(var->lst_b, new);
+		lstadd_front(B, new);
 	ft_putstr("pb\n");
+	print_lst(A->be);
+	print_lst(B->be);
 }
 
 void    psh_pa(t_var *var)
 {
 	t_node	*new;
 
-	if (!var->lst_b->begin)
+	if (!B->be)
 		return ;
-	new = new_element(var->lst_b->begin->content);
-	lstpop_front(var->lst_b);
-	if (!var->lst_a->begin)
+	new = new_element(B->be->nb);
+	lstpop_front(B);
+	if (!A->be)
 	{
-		var->lst_a->begin = new;
-		var->lst_a->end = new;
+		A->be = new;
+		A->end = new;
 	}
 	else
-		lstadd_front(var->lst_a, new);
+		lstadd_front(A, new);
 	ft_putstr("pa\n");
+	print_lst(A->be);
+	print_lst(B->be);
 }

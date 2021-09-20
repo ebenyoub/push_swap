@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/15 20:34:11 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 14:59:39 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ void    param_init(int *argc, char **argv, t_var **var)
 		(*var)->tab[i] = ft_atoi((const char *)param[i]);
 		i++;
 	}
-	(*var)->rr = true;
+	(*var)->flag = false;
 	param_duplicate(*argc, param);
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:45:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/14 18:15:53 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 15:07:56 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,37 @@
 
 void    swp_sa(t_var *var)
 {
-    void    *tmp_data;
+    int     tmp;
 
-    if (!var->lst_a->begin || !var->lst_a->begin->next)
+    tmp = A->be->nb;
+    if (!A->be || !A->be->next)
         return ;
-    tmp_data = var->lst_a->begin->next->content;
-    var->lst_a->begin->next->content = var->lst_a->begin->content;
-    var->lst_a->begin->content = tmp_data;
-    var->rr ? ft_putstr("sa\n") : 0;
+    A->be->nb = A->be->next->nb;
+    A->be->next->nb = tmp;
+    !F ? ft_putstr("sa\n") : 0;
+	print_lst(A->be);
+	print_lst(B->be);
 }
 
 void    swp_sb(t_var *var)
 {
-    void    *tmp_data;
+    int     tmp;
 
-    if (!var->lst_b->begin || !var->lst_b->begin->next)
+    tmp = B->be->nb;
+    if (!B->be || !B->be->next)
         return ;
-    tmp_data = var->lst_b->begin->next->content;
-    var->lst_b->begin->next->content = var->lst_b->begin->content;
-    var->lst_b->begin->content = tmp_data;
-    var->rr ? ft_putstr("sb\n") : 0;
+    B->be->nb = B->be->next->nb;
+    B->be->next->nb = tmp;
+    !F ? ft_putstr("sb\n") : 0;
+	print_lst(A->be);
+	print_lst(B->be);
 }
 
 void    swp_ss(t_var *var)
 {
-    var->rr = false;
+    F = true;
     swp_sa(var);
     swp_sb(var);
-    var->rr = true;
+    F = false;
     ft_putstr("ss\n");
 }

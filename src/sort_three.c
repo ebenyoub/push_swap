@@ -6,45 +6,53 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 15:32:15 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/19 16:59:46 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 15:04:09 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
 
-void    sort_apply(t_var *var, int *n)
+void    sort_apply_next(t_var *var)
 {
-    int     a;
-    int     b;
-    int     c;
+    if (A->be->nb > A->be->next->nb 
+        && A->be->nb > A->end->nb
+        && A->be->next->nb > A->end->nb)
+    {
+        swp_sa(var);
+        rev_rra(var);
+    }
+    if (A->be->nb < A->be->next->nb 
+        && A->be->nb < A->end->nb
+        && A->be->next->nb > A->end->nb)
+    {
+        swp_sa(var);
+        rot_ra(var);
+    }
+}
 
-    a = n[0];
-    b = n[1];
-    c = n[2];
-    a > b && a < c && b < c ? swp_sa(var) : 0;
-    a > b && a > c && b < c ? rot_ra(var) : 0;
-    a < b && a > c && b > c ? rev_rra(var) : 0;
-    a > b && a > c && b > c ? swp_sa(var) : 0;
-    a > b && a > c && b > c ? rev_rra(var) : 0;
-    a < b && a < c && b > c ? swp_sa(var) : 0;
-    a < b && a < c && b > c ? rot_ra(var) : 0;
+void    sort_apply(t_var *var)
+{
+    if (A->be->nb > A->be->next->nb 
+        && A->be->nb < A->end->nb
+        && A->be->next->nb < A->end->nb)
+        swp_sa(var);
+    if (A->be->nb > A->be->next->nb 
+        && A->be->nb > A->end->nb
+        && A->be->next->nb < A->end->nb)
+        rot_ra(var);
+    if (A->be->nb < A->be->next->nb 
+        && A->be->nb > A->end->nb
+        && A->be->next->nb > A->end->nb)
+        rev_rra(var);
+        sort_apply_next(var);
 }
 
 void    sort_three(t_var *var)
 {
-    t_node  *lst;
-    int     a[3];
-    int     i;
-    int     *ptr;
-
-    i = 0;
-    lst = var->lst_a->begin;
-    while (i < 3)
+    if (is_sorted_lst(A->be))
     {
-        ptr = lst->content;
-        a[i] = *ptr;
-        lst = lst->next;
-        i++;
+        fprintf(stderr, "sorted\n");
+        return ;
     }
-    sort_apply(var, a);
+    sort_apply(var);
 }

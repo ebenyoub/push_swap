@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 00:27:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/15 01:25:00 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 15:07:56 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,35 @@ void    rev_rra(t_var *var)
 {
 	t_node	*tmp;
 
-	if (!var->lst_a->begin || !var->lst_a->begin->next)
+	if (!A->be || !A->be->next)
 		return ;
-	tmp = new_element(var->lst_a->end->content);
-	lstpop_back(var->lst_a);
-	lstadd_front(var->lst_a, tmp);
-	var->rr ? ft_putstr("rra\n") : 0;
+	tmp = new_element(A->end->nb);
+	lstpop_back(A);
+	lstadd_front(A, tmp);
+	!F ? ft_putstr("rra\n") : 0;
+	print_lst(A->be);
+	print_lst(B->be);
 }
 
 void    rev_rrb(t_var *var)
 {
 	t_node	*tmp;
 
-	if (!var->lst_b->begin || !var->lst_b->begin->next)
+	if (!B->be || !B->be->next)
 		return ;
-	tmp = new_element(var->lst_b->end->content);
-	lstpop_back(var->lst_b);
-	lstadd_front(var->lst_b, tmp);
-	var->rr ? ft_putstr("rrb\n") : 0;
+	tmp = new_element(B->end->nb);
+	lstpop_back(B);
+	lstadd_front(B, tmp);
+	!F ? ft_putstr("rrb\n") : 0;
+	print_lst(A->be);
+	print_lst(B->be);
 }
 
 void    rev_rrr(t_var *var)
 {
-	var->rr = false;
+	F = true;
     rev_rra(var);
     rev_rrb(var);
-	var->rr = true;
+	F = false;
     ft_putstr("rrr\n");
 }

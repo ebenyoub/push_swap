@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/19 17:13:43 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 15:08:01 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@
 # include <limits.h>
 # include <stdbool.h>
 
+# define A var->la
+# define B var->lb
+# define F var->flag
+
 typedef struct  s_node
 {
-	void			*content;
+	int				nb;
 	struct s_node	*back;
 	struct s_node	*next;
 }               t_node;
@@ -29,16 +33,16 @@ typedef struct  s_node
 typedef struct	s_list
 {
 	int				length;	
-	struct s_node	*begin;
+	struct s_node	*be;
 	struct s_node	*end;
 }				t_list;
 
 typedef struct	s_var
 {
 	int				*tab;
-	bool			rr;
-	struct s_list	*lst_a;
-	struct s_list	*lst_b;
+	bool			flag;
+	struct s_list	*la;
+	struct s_list	*lb;
 }				t_var;
 
 /******* LIBFT *******/
@@ -79,13 +83,14 @@ void    rev_rrr(t_var *var);
 
 /******** LIST *********/
 
-t_node  *new_element(void *content);
+t_node  *new_element(int nb);
 t_list	*new_list();
-t_list	*make_list(int argc, int **tab);
+t_list	*make_list(int argc, int *tab);
 void	lstpop_front(t_list *lst);
 void	lstpop_back(t_list *lst);
 void    lstadd_front(t_list *lst, t_node *new);
-void    lstadd_back(t_list *lst, void *content);
+void    lstadd_back(t_list *lst, int nb);
 void    print_lst(t_node *lst);
+int		is_sorted_lst(t_node *lst);
 
 # endif

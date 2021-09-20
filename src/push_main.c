@@ -6,11 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:04:23 by ebenyoub          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/09/19 17:16:00 by ebenyoub         ###   ########lyon.fr   */
-=======
-/*   Updated: 2021/09/15 20:57:57 by ebenyoub         ###   ########lyon.fr   */
->>>>>>> 26a787e084cd773afd228ffa45f048d9c78b914c
+/*   Updated: 2021/09/20 15:04:29 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +18,10 @@ int     main(int argc, char **argv)
 
 	var = NULL;
 	param_init(&argc, argv, &var);
-	var->lst_a = make_list(argc, &var->tab);
-	var->lst_b = new_list();
-<<<<<<< HEAD
-	print_lst(var->lst_a->begin);
-	sort_five(var);
-	print_lst(var->lst_a->begin);
-	print_lst(var->lst_b->begin);
-=======
->>>>>>> 26a787e084cd773afd228ffa45f048d9c78b914c
+	A = make_list(argc, var->tab);
+	B = new_list();
+	print_lst(A->be);
+	A->length == 3 ? sort_three(var) : 0;
+	A->length == 5 ? sort_five(var) : 0;
 	return (0);
 }
