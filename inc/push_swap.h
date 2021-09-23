@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/21 00:09:51 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/23 17:47:19 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@
 # include <limits.h>
 # include <stdbool.h>
 
-# define A var->la
-# define B var->lb
-# define F var->flag
+# define A	var->la
+# define B	var->lb
+# define F	var->flag
+# define M	var->median
+# define C	var->chunk
+# define PRINT	print_lst(A->be); print_lst(B->be); fprintf(stderr, "\n");
+
 
 typedef struct  s_node
 {
@@ -40,6 +44,10 @@ typedef struct	s_list
 typedef struct	s_var
 {
 	int				*tab;
+	int				*index;
+	int				tap;
+	int				median;
+	int				chunk;
 	bool			flag;
 	struct s_list	*la;
 	struct s_list	*lb;
@@ -69,6 +77,9 @@ void    sort_two(t_var *var);
 void    sort_three(t_var *var);
 void	sort_five(t_var *var);
 void	sort_four(t_var *var);
+void	sort_index(t_var *var);
+void    sort_small(t_var *var);
+void	find_median(t_var *var);
 
 void    swp_sa(t_var *var);
 void    swp_sb(t_var *var);
@@ -87,10 +98,10 @@ void    rev_rrr(t_var *var);
 
 t_node  *new_element(int nb);
 t_list	*new_list();
-t_list	*make_list(int argc, int *tab);
-void	lstpop_front(t_list *lst);
-void	lstpop_back(t_list *lst);
-void    lstadd_front(t_list *lst, t_node *new);
+t_list	*make_list(int argc, t_var *var);
+void	lstpop_front(char c, t_var *var);
+void	lstpop_back(char c, t_var *var);
+void    lstadd_front(char c, t_var *var, t_node *new);
 void    lstadd_back(t_list *lst, int nb);
 void    print_lst(t_node *lst);
 bool	is_sorted_lst(t_node *lst);

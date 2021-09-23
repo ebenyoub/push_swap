@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 00:12:02 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/20 20:27:43 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/23 17:15:25 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ void    rot_ra(t_var *var)
 {
 	int		tmp;
 
-	if (!A->be || !A->be->next)
+	if (!(A)->be || !(A)->be->next)
 		return ;
 	tmp = A->be->nb;
-	lstpop_front(A);
+	lstpop_front('a', var);
     lstadd_back(A, tmp);
-	!F ? ft_putstr("ra\n") : 0;
-	print_lst(A->be);
-	print_lst(B->be);
+	!(F) ? ft_putstr("ra") : 0;
+	!(F) ? var->tap++ : 0; PRINT
 }
 
 void    rot_rb(t_var *var)
@@ -33,11 +32,10 @@ void    rot_rb(t_var *var)
 	if (!B->be || !B->be->next)
 		return ;
 	tmp = B->be->nb;
-	lstpop_front(B);
+	lstpop_front('b', var);
     lstadd_back(B, tmp);
-	!F ? ft_putstr("rb\n") : 0;
-	print_lst(A->be);
-	print_lst(B->be);
+	!(F) ? ft_putstr("rb") : 0;
+	!(F) ? var->tap++ : 0; PRINT
 }
 
 void    rot_rr(t_var *var)
@@ -46,5 +44,6 @@ void    rot_rr(t_var *var)
     rot_ra(var);
     rot_rb(var);
 	F = false;
-    ft_putstr("rr\n");
+    ft_putstr("rr");
+	var->tap++;
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:25:22 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/21 00:06:39 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 20:21:55 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void    print_lst(t_node *lst)
 	ft_putstr("\t");
 	while (lst)
 	{
-		ft_putstr("[");
-		ft_putnbr(lst->nb);
-		ft_putstr("] ");
+		fprintf(stderr, "[%d] ", lst->nb);
 		lst = lst->next;
 	}
 	ft_putstr("\n");

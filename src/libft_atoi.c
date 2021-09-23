@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:42:56 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/02 17:41:46 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 21:05:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 int             ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-			return (1);
-	return (0);	
+	return (c >= '0' && c <= '9' ? 1 : 0);
 }     
 
 int		ft_atoi(const char *str)

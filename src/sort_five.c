@@ -5,7 +5,7 @@ void	nbr_four(t_var *var)
 	bool	i;
 
 	i = false;
-	if (B->be->nb < A->be->next->nb)
+	if ((B)->be->nb < A->be->next->nb)
 	{
 		psh_pa(var);
 		A->be->nb > A->be->next->nb ? swp_sa(var) : 0;

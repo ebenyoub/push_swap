@@ -6,11 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 12:57:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/21 00:26:20 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/23 16:36:24 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
+
+# define T	var->tab
 
 t_node  *new_element(int nb)
 {
@@ -34,7 +36,7 @@ t_list     *new_list()
 	return (lst);
 }
 
-t_list	*make_list(int argc, int *tab)
+t_list	*make_list(int argc, t_var *var)
 {
 	t_list	*lst;
 	int     i;
@@ -45,7 +47,7 @@ t_list	*make_list(int argc, int *tab)
 	{
 		while (i < argc)
 		{	
-			lstadd_back(lst, tab[i]);
+			lstadd_back(lst, T[i]);
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 16:17:26 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/13 14:33:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 21:05:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,5 @@ static char		**make_tab(char *str, char c)
 
 char			**ft_split(char const *s, char c)
 {
-	char	*set;
-
-	if (s)
-	{
-		if (!(set = malloc(sizeof(char) * 2)))
-			return (NULL);
-		set[0] = c;
-		set[1] = '\0';
-		free(set);
-		return (make_tab((char *)s, c));
-	}
-	return (NULL);
+		return (s ? make_tab((char *)s, c) : NULL);
 }

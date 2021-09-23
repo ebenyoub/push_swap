@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/20 14:59:39 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/22 21:15:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,25 @@ int     param_size(char **tab)
 	return (i);
 }
 
-void    param_init(int *argc, char **argv, t_var **var)
+void	create_tab(int *argc, char **param, t_var **var)
 {
-	int     i;
-	char	**param;
+	int		i;
 
 	i = 0;
+	!((*var)->tab = (int *)malloc(sizeof(int) * (*(argc)))) ? m_exit() : 0;
+	!((*var)->index = (int *)malloc(sizeof(int) * (*(argc)))) ? m_exit() : 0;
+	while (i < *argc)
+	{
+		(*var)->tab[i] = ft_atoi((const char *)param[i]);
+		(*var)->index[i] = (*var)->tab[i];
+		i++;
+	}
+}
+
+void    param_init(int *argc, char **argv, t_var **var)
+{
+	char	**param;
+
 	!(*var = (t_var *)malloc(sizeof(t_var))) ? m_exit() : 0;
 	if (*argc == 2)
 		param = ft_split((const char *)argv[1], ' ');
@@ -73,12 +86,8 @@ void    param_init(int *argc, char **argv, t_var **var)
 		param = &argv[1];
 	*argc = param_size(param);
 	param_chekin(*argc, param);
-	!((*var)->tab = (int *)malloc(sizeof(int) * (*(argc)))) ? m_exit() : 0;
-	while (i < *argc)
-	{
-		(*var)->tab[i] = ft_atoi((const char *)param[i]);
-		i++;
-	}
+	create_tab(argc, param, var);
 	(*var)->flag = false;
+	(*var)->tap = 0;
 	param_duplicate(*argc, param);
 }

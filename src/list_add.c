@@ -6,14 +6,17 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/21 00:27:19 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/23 16:31:02 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
 
-void    lstadd_front(t_list *lst, t_node *new)
+void    lstadd_front(char c, t_var *var, t_node *new)
 {
+	t_list	*lst;
+
+	(c == 'a') ? (lst = A) : (lst = B);
 	if (new)
 	{
 		if (!lst->be)
@@ -39,7 +42,7 @@ void    lstadd_back(t_list *lst, int nb)
 	new = new_element(nb);
 	if (new)
 	{
-		if (!lst->be)
+		if (lst->be == NULL)
 		{
 			lst->length = 0;
 			lst->be = new;
@@ -55,16 +58,19 @@ void    lstadd_back(t_list *lst, int nb)
 	}
 }
 
-void	lstpop_front(t_list *lst)
+void	lstpop_front(char c, t_var *var)
 {
 	t_node	*tmp;
+	t_list	*lst;
 
+	(c == 'a') ? (lst = A) : (lst = B);
 	if (!lst->be)
 		return;
 	if (!lst->be->next)
 	{
 		free(lst->be);
 		lst->be = NULL;
+		lst->length--;
 		return ;
 	}
 	tmp = lst->be;
@@ -72,13 +78,18 @@ void	lstpop_front(t_list *lst)
 	lst->be->back = NULL;
 	free(tmp);
 	tmp = NULL;
+	lst->length--;
 }
 
-void	lstpop_back(t_list *lst)
+void	lstpop_back(char c, t_var *var)
 {
+	t_list	*lst;
+
+	(c == 'a') ? (lst = A) : (lst = B);
 	if (!lst->be)
 		return;
 	lst->end = lst->end->back;
 	free(lst->end->next);
 	lst->end->next = NULL;
+	lst->length--;
 }
