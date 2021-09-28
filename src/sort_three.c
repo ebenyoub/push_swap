@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 15:32:15 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/22 20:51:56 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/27 22:23:11 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    sort_apply_next(t_var *var)
 
 void    sort_three(t_var *var)
 {
-    if ((A)->be->nb > A->be->next->nb 
+    if ((A->be->nb) > (A->be->next->nb) 
         && A->be->nb < A->end->nb
         && A->be->next->nb < A->end->nb)
         swp_sa(var);

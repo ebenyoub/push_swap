@@ -6,21 +6,60 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:56:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/23 17:42:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/28 14:38:36 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
 
-# define T	var->tab
-# define I	var->index
+void	last_chunk(int i, int n, t_var *var)
+{
+	int		a;
+	int		size;
+
+	a = 0;
+	size = S - n;
+	!(var->chunk_tabs[i] = (int *)malloc(sizeof(int) * size)) ? m_exit() : 0;
+	while (a < size)
+	{
+		var->chunk_tabs[i][a] = I[n];
+		a++;
+		n++;	
+	}
+}
+
+void	create_chunks(t_var *var)
+{
+	int		i;
+	int		c;
+	int		a;
+	int		n;
+
+	i = 0;
+	n = 0;
+	c = S <= 100 ? 5 : 11;
+	!(var->chunk_tabs = (int **)malloc(sizeof(int *) * c  + 1)) ? m_exit() : 0;
+	while (i < c)
+	{
+		a = 0;
+		!(var->chunk_tabs[i] = (int *)malloc(sizeof(int) * C)) ? m_exit() : 0;
+		while (a < C)
+		{
+			var->chunk_tabs[i][a] = I[n];
+			a++;
+			n++;
+		}
+		i++;
+	}
+	last_chunk(i, n, var);
+}
 
 void	find_median(t_var *var)
 {
-	M = A->length / 2;
-	M * 2 < A->length ? M = M + 1 : 0;
-	A->length <= 100 ? C = A->length / 5 : 0;
-	A->length <= 500 ? C = A->length / 11 : 0;
+	var->size = var->la->length;
+	M = L / 2;
+	L % 2 == 0 ? M = M - 1 : 0;
+	S <= 100 ? (C = S / 5) : (C = S / 11);
 }
 
 void	sort_index(t_var *var)

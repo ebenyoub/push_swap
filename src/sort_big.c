@@ -1,53 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mov_psh.c                                          :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
+/*   Created: 2021/09/27 16:56:50 by ebenyoub          #+#    #+#             */
 /*   Updated: 2021/09/28 19:37:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
 
-void    psh_pb(t_var *var)
+void	sort_push(int n, t_var *var)
 {
-	t_node	*new;
-
-	if (!(A->be))
-		return ;
-	new = new_element(A->be->nb);
-	lstpop_front('a', var);
-	if (!B->be)
+	if (n < 0)
 	{
-		B->be = new;
-		B->end = new;
-		B->length++;
+		n = -n;
+		while (n > 0)
+		{
+			!Q ? rev_rra(var) : rev_rrb(var);
+			n--;
+		}
 	}
 	else
-		lstadd_front('b', var, new);
-	ft_putstr("pb\n"); //// PRINT
-	var->tap++;
+	{
+		while (n > 1)
+		{
+			!Q ? rot_ra(var) : rot_rb(var);
+			n--;
+		}
+	}
+	!Q ? psh_pb(var) : psh_pa(var);
 }
 
-void    psh_pa(t_var *var)
+void    sort_big(t_var *var)
 {
-	t_node	*new;
+	int     c;
+	int		n;
+	int		i;
 
-	if (!B->be)
-		return ;
-	new = new_element(B->be->nb);
-	lstpop_front('b', var);
-	if (!(A)->be)
+	c = 0;
+	i = 0;
+	create_chunks(var);
+	while (L != 0)
 	{
-		A->be = new;
-		A->end = new;
-		A->length++;
+		n = find_nb(c, var);
+		sort_push(n, var);
+		i++;
+		M = L / 2;
+		L % 2 == 0 ? M = M - 1 : 0;
+		i == C ? c++ : 0;
+		i == C ? i = 0 : 0;
+		// PRINT
 	}
-	else
-		lstadd_front('a', var, new);
-	ft_putstr("pa\n"); //// PRINT
-	var->tap++;
+	Q = true; // PRINT
+	sort_final(var);
 }

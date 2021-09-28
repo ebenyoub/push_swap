@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/23 16:31:02 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/27 22:21:24 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	lstpop_front(char c, t_var *var)
 	t_node	*tmp;
 	t_list	*lst;
 
-	(c == 'a') ? (lst = A) : (lst = B);
-	if (!lst->be)
+	(c == 'a') ? (lst = var->la) : (lst = var->lb);
+	if (!(lst->be))
 		return;
 	if (!lst->be->next)
 	{

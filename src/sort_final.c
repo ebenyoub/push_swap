@@ -1,53 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mov_psh.c                                          :+:      :+:    :+:   */
+/*   sort_final.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
+/*   Created: 2021/09/27 20:41:06 by ebenyoub          #+#    #+#             */
 /*   Updated: 2021/09/28 19:37:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
 
-void    psh_pb(t_var *var)
+void    sort_final(t_var *var)
 {
-	t_node	*new;
+    int     i;
+    int     n;
 
-	if (!(A->be))
-		return ;
-	new = new_element(A->be->nb);
-	lstpop_front('a', var);
-	if (!B->be)
-	{
-		B->be = new;
-		B->end = new;
-		B->length++;
-	}
-	else
-		lstadd_front('b', var, new);
-	ft_putstr("pb\n"); //// PRINT
-	var->tap++;
-}
-
-void    psh_pa(t_var *var)
-{
-	t_node	*new;
-
-	if (!B->be)
-		return ;
-	new = new_element(B->be->nb);
-	lstpop_front('b', var);
-	if (!(A)->be)
-	{
-		A->be = new;
-		A->end = new;
-		A->length++;
-	}
-	else
-		lstadd_front('a', var, new);
-	ft_putstr("pa\n"); //// PRINT
-	var->tap++;
+    i = B->length - 1;
+    while (B->be != NULL)
+    {
+        var->nb = I[i];
+        n = find_nb(0, var);
+        sort_push(n, var);
+        i--; // PRINT
+    }
 }
