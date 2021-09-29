@@ -50,7 +50,7 @@ static int		*word_mark(char *str, char c, int nb)
 		if (str[i] != c)
 		{
 			tab[a++] = i;
-			while (str[i] != c)
+			while (str[i] && str[i] != c)
 				i++;
 		}
 	}
