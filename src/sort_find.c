@@ -17,7 +17,7 @@ bool    is_in_chunk(int nb, int *chunk, t_var *var)
 	int		i;
 
 	i = 0;
-	while (i < C)
+	while (chunk[i] && i < C)
 	{
 		if (nb == chunk[i])
 			return (true);
