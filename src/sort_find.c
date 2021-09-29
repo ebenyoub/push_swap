@@ -6,21 +6,19 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:37:59 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/28 22:05:41 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 15:26:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/push_swap.h"
 
-bool    is_in_chunk(int nb, int *chunk, t_var *var)
+bool    is_in_chunk(int nb, int *chunk)
 {
 	int		i;
 
 	i = 0;
-	while (chunk[i] && i < C)
+	while (chunk[i])
 	{
-		printf("C = %d | chunk[i] = %d\n", C, chunk[i]);
-		printf("i = %d\n", i);
 		if (nb == chunk[i])
 			return (true);
 		i++;
@@ -37,7 +35,7 @@ int     find_top(int c, t_var *var)
 	Q ? (lst = B->be) : (lst = A->be);
 	while (i <= M)
 	{
-		if (!Q && is_in_chunk(lst->nb, var->chunk_tabs[c], var))
+		if (!Q && is_in_chunk(lst->nb, var->chunk_tabs[c]))
 			return (i + 1);
 		else if (Q && lst->nb == var->nb)
 			return (i + 1);
@@ -56,7 +54,7 @@ int     find_bot(int c, t_var *var)
 	Q ? (lst = B->end) : (lst = A->end);
 	while (i <= M)
 	{
-		if (!Q && is_in_chunk(lst->nb, var->chunk_tabs[c], var))
+		if (!Q && is_in_chunk(lst->nb, var->chunk_tabs[c]))
 			return (i + 1);
 		else if (Q && lst->nb == var->nb)
 			return (i + 1);

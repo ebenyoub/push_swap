@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/28 20:41:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 14:51:36 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@
 # define N	var->nb
 # define Q	var->alt
 
-/*
+
 # define PRINT	print_lst(A->be); print_lst(B->be); fprintf(stderr, "\n");
-*/
+
 
 typedef struct  s_node
 {
