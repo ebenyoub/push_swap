@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:37:59 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/28 19:39:08 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/28 22:05:41 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ bool    is_in_chunk(int nb, int *chunk, t_var *var)
 	i = 0;
 	while (i < C)
 	{
+		printf("C = %d | chunk[i] = %d\n", C, chunk[i]);
+		printf("i = %d\n", i);
 		if (nb == chunk[i])
 			return (true);
 		i++;
