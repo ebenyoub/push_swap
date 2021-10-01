@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/28 19:32:47 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/30 18:10:33 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ void    param_init(int *argc, char **argv, t_var **var)
 	(*var)->tap = 0;
 	(*var)->alt = false;
 	(*var)->nb = 0;
+	(*var)->last_chunk = 0;
 	param_duplicate(*argc, param);
 }

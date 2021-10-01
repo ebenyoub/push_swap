@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:45:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/28 19:37:53 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/30 18:39:48 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    swp_sa(t_var *var)
     A->be->nb = A->be->next->nb;
     A->be->next->nb = tmp;
     !(F) ? ft_putstr("sa\n") : 0;
-	!(F) ? var->tap++ : 0; //// PRINT
+	!(F) ? var->tap++ : 0; // PRINT
 }
 
 void    swp_sb(t_var *var)
@@ -35,7 +35,7 @@ void    swp_sb(t_var *var)
     B->be->nb = B->be->next->nb;
     B->be->next->nb = tmp;
     !(F) ? ft_putstr("sb\n") : 0;
-	!(F) ? var->tap++ : 0; //// PRINT
+	!(F) ? var->tap++ : 0; // PRINT
 }
 
 void    swp_ss(t_var *var)

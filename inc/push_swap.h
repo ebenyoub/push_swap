@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/29 14:51:36 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/09/30 18:12:41 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct	s_var
 	int				median;
 	int				chunk;
 	int				nb;
+	int				last_chunk;
 	int				**chunk_tabs;
 	bool			flag;
 	bool			alt;
