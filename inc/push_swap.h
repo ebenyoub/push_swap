@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 17:21:11 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 18:57:43 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int		find_nb(int c, t_var *var);
 void	create_chunks(t_var *var);
 void    sort_big(t_var *var);
 
+void    free_tab(int **tab, t_var *var);
 
 void    swp_sa(t_var *var);
 void    swp_sb(t_var *var);

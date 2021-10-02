@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:56:50 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 17:18:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 18:57:43 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void    sort_big(t_var *var)
 		i == C ? c++ : 0;
 		i == C ? i = 0 : 0;
 	}
+	free_tab(K, var);
 	Q = true;
 	sort_final(var);
 }
