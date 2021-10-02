@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:41:06 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/30 18:31:35 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 17:18:24 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void    sort_final(t_var *var)
 {
-    int     i;
-    int     n;
+	int     i;
+	int     n;
 
-    i = B->length - 1;
-    while (B->be != NULL)
-    {
-        var->nb = I[i];
-        n = find_nb(0, var);
-        // printf("n ==> %d | I[%d] = %d\n", n, i, I[i]);
-        sort_push(n, var);
-        i--; //PRINT
-    }
+	i = S;
+	while (B->be != NULL)
+	{
+		i--;
+		var->nb = I[i];
+		n = find_nb(0, var);
+		sort_push(n, var);
+	}
 }

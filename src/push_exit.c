@@ -6,14 +6,14 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:26:18 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/08/31 13:10:57 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 13:45:06 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void    m_exit(void)
+void    m_exit(int err)
 {
-    ft_putstr("Error\n");
+    err == -1 ? ft_putstr("Error\n") : 0;
     exit (EXIT_FAILURE);
 }

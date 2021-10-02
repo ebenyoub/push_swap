@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/30 18:12:41 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 17:21:11 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,23 @@
 # include <limits.h>
 # include <stdbool.h>
 
+/*
+** raccourcis pour allèger le code
+*/
+
 # define A	var->la
 # define B	var->lb
 # define F	var->flag
 # define M	var->median
-# define C	var->chunk
+# define P	var->part
+# define C	var->chunk_len
+# define K	var->chunk_tabs
 # define S	var->size
 # define T	var->tab
 # define I	var->index
-# define L	A->length
-# define N	var->nb
 # define Q	var->alt
-
-
-# define PRINT	print_lst(A->be); print_lst(B->be); fprintf(stderr, "\n");
-
+# define L	Q ? B->length : A->length
+# define N	var->nb
 
 typedef struct  s_node
 {
@@ -56,9 +58,10 @@ typedef struct	s_var
 	int				tap;
 	int				size;
 	int				median;
-	int				chunk;
+	int				chunk_len;
+	int				part;
 	int				nb;
-	int				last_chunk;
+	int				last_chunk_size;
 	int				**chunk_tabs;
 	bool			flag;
 	bool			alt;
@@ -88,8 +91,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 ****** PUSH_SWAP ******
 */
 
-void    m_exit(void);
-void    param_init(int *argc, char **argv, t_var **var);
+void    m_exit(int err);
+void    param_init(int argc, char **argv, t_var *var);
 void    sort_two(t_var *var);
 void    sort_three(t_var *var);
 void	sort_four(t_var *var);
@@ -98,7 +101,6 @@ void	sort_index(t_var *var);
 void    sort_small(t_var *var);
 void	sort_push(int n, t_var *var);
 void    sort_final(t_var *var);
-void	find_median(t_var *var);
 int		find_nb(int c, t_var *var);
 void	create_chunks(t_var *var);
 void    sort_big(t_var *var);
@@ -122,7 +124,7 @@ void    rev_rrr(t_var *var);
 
 t_node  *new_element(int nb);
 t_list	*new_list();
-t_list	*make_list(int argc, t_var *var);
+t_list	*make_list(t_var *var);
 void	lstpop_front(char c, t_var *var);
 void	lstpop_back(char c, t_var *var);
 void    lstadd_front(char c, t_var *var, t_node *new);

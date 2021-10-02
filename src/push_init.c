@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/30 18:10:33 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 17:33:15 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void     param_chekin(int argc, char **argv)
 			i++;
 		while (argv[a][i])
 		{
-			(!ft_isdigit(argv[a][i])) ? m_exit() : 0;
+			(!ft_isdigit(argv[a][i])) ? m_exit(-1) : 0;
 			i++;
 		}
 		a++;
@@ -43,7 +43,7 @@ void	param_duplicate(int argc, char **argv)
 		i = 1 + j;
 		while (argv[i] && i < argc)
 		{
-			(!ft_strcmp(argv[i], argv[j])) ? m_exit() : 0;
+			(!ft_strcmp(argv[i], argv[j])) ? m_exit(-1) : 0;
 			i++;
 		}
 		j++;
@@ -60,37 +60,38 @@ int     param_size(char **tab)
 	return (i);
 }
 
-void	create_tab(int *argc, char **param, t_var **var)
+void	create_tab(char **param, t_var *var)
 {
 	int		i;
 
 	i = 0;
-	!((*var)->tab = (int *)malloc(sizeof(int) * (*(argc)))) ? m_exit() : 0;
-	!((*var)->index = (int *)malloc(sizeof(int) * (*(argc)))) ? m_exit() : 0;
-	while (i < *argc)
+	!(var->tab = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
+	!(var->index = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
+	while (i < S)
 	{
-		(*var)->tab[i] = ft_atoi((const char *)param[i]);
-		(*var)->index[i] = (*var)->tab[i];
+		var->tab[i] = ft_atoi((const char *)param[i]);
+		var->index[i] = var->tab[i];
 		i++;
 	}
+	sort_index(var);
 }
 
-void    param_init(int *argc, char **argv, t_var **var)
+void    param_init(int argc, char **argv, t_var *var)
 {
 	char	**param;
 
-	!(*var = (t_var *)malloc(sizeof(t_var))) ? m_exit() : 0;
-	if (*argc == 2)
-		param = ft_split((const char *)argv[1], ' ');
-	else
-		param = &argv[1];
-	*argc = param_size(param);
-	param_chekin(*argc, param);
-	create_tab(argc, param, var);
-	(*var)->flag = false;
-	(*var)->tap = 0;
-	(*var)->alt = false;
-	(*var)->nb = 0;
-	(*var)->last_chunk = 0;
-	param_duplicate(*argc, param);
+	param = (argc == 2) ? ft_split((const char *)argv[1], ' ') : &argv[1];
+	S = param_size(param);
+	P = S <= 100 ? 6 : 11;
+	C = S <= 100 ? S / 6 : S / 11;
+	create_tab(param, var);
+	param_chekin(S, param);
+	param_duplicate(S, param);
+	A = make_list(var);
+	B = new_list(); 
+	var->flag = false;
+	var->alt = false;
+	var->last_chunk_size = 0;
+	var->tap = 0;
+	var->nb = 0;
 }

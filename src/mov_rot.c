@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 00:12:02 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/30 18:39:48 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 17:20:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    rot_ra(t_var *var)
 	lstpop_front('a', var);
     lstadd_back(A, tmp);
 	!(F) ? ft_putstr("ra\n") : 0;
-	!(F) ? var->tap++ : 0; // PRINT
+	!(F) ? var->tap++ : 0; 
 }
 
 void    rot_rb(t_var *var)
@@ -35,7 +35,7 @@ void    rot_rb(t_var *var)
 	lstpop_front('b', var);
     lstadd_back(B, tmp);
 	!(F) ? ft_putstr("rb\n") : 0;
-	!(F) ? var->tap++ : 0; // PRINT
+	!(F) ? var->tap++ : 0; 
 }
 
 void    rot_rr(t_var *var)

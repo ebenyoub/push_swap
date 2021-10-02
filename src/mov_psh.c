@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/30 18:30:49 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/02 17:20:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    psh_pb(t_var *var)
 	}
 	else
 		lstadd_front('b', var, new);
-	ft_putstr("pb\n"); // PRINT
+	ft_putstr("pb\n"); 
 	var->tap++;
 }
 
@@ -48,6 +48,6 @@ void    psh_pa(t_var *var)
 	}
 	else
 		lstadd_front('a', var, new);
-	ft_putstr("pa\n"); // PRINT
+	ft_putstr("pa\n"); 
 	var->tap++;
 }
