@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:37:59 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 15:43:41 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 15:53:36 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		find_nb(int c, t_var *var)
 
 	top = find_top(c, var);
 	bot = find_bot(c, var);
-	n = top > bot ? bot : top;
-	top > bot ? n = -n : 0;
+	n = (top > bot) ? bot : top;
+	(top > bot) ? n = -n : 0;
 	return (n);
 }

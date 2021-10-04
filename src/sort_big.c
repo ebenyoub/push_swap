@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:56:50 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 15:47:32 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 16:10:05 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void    sort_big(t_var *var)
 	i = 0;
 	n = 0;
 	create_chunks(var);
-	while (L >= 0)
+	while (L > 0)
 	{
 		n = find_nb(c, var);
 		sort_push(n, var);
 		i++;
-		i == C ? c++ : 0;
-		i == C ? i = 0 : 0;
+		(i == C) ? c++ : 0;
+		(i == C) ? i = 0 : 0;
 	}
 	Q = true;
 	sort_final(var);

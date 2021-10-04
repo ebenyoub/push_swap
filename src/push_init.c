@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 14:11:04 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 16:04:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void    param_init(int argc, char **argv, t_var *var)
 
 	param = (argc == 2) ? ft_split((const char *)argv[1], ' ') : &argv[1];
 	S = param_size(param);
-	P = S <= 100 ? 6 : 11;
-	C = S <= 100 ? S / 6 : S / 11;
+	P = S <= 100 ? 5 : 11;
+	C = S <= 100 ? S / 5 : S / 11;
 	create_tab(param, var);
 	param_chekin(S, param);
 	param_duplicate(S, param);
