@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:56:50 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 16:31:40 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:12:08 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,4 @@ void    sort_big(t_var *var)
 	}
 	Q = true;
 	sort_final(var);
-	free_tab(K, var);
 }

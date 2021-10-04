@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 17:20:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:12:08 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    psh_pb(t_var *var)
 
 	if (!(A->be))
 		return ;
-	new = new_element(A->be->nb);
+	new = new_element(A->be->nb, var);
 	lstpop_front('a', var);
 	if (!B->be)
 	{
@@ -38,7 +38,7 @@ void    psh_pa(t_var *var)
 
 	if (!B->be)
 		return ;
-	new = new_element(B->be->nb);
+	new = new_element(B->be->nb, var);
 	lstpop_front('b', var);
 	if (!(A)->be)
 	{

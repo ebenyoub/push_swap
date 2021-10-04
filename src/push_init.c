@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 16:35:10 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:18:55 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void     param_chekin(int argc, char **argv)
+void     param_chekin(t_var *var, int argc, char **argv)
 {
 	int a;
 	int i;
@@ -25,14 +25,14 @@ void     param_chekin(int argc, char **argv)
 			i++;
 		while (argv[a][i])
 		{
-			(!ft_isdigit(argv[a][i])) ? m_exit(-1) : 0;
+			(!ft_isdigit(argv[a][i])) ? m_exit(-1, var) : 0;
 			i++;
 		}
 		a++;
 	}
 }
 
-void	param_duplicate(int argc, char **argv)
+void	param_duplicate(t_var *var, int argc, char **argv)
 {
 	int	    i;
 	int		j;
@@ -43,7 +43,7 @@ void	param_duplicate(int argc, char **argv)
 		i = 1 + j;
 		while (argv[i] && i < argc)
 		{
-			(!ft_strcmp(argv[i], argv[j])) ? m_exit(-1) : 0;
+			(!ft_strcmp(argv[i], argv[j])) ? m_exit(-1, var) : 0;
 			i++;
 		}
 		j++;
@@ -65,11 +65,11 @@ void	create_tab(char **param, t_var *var)
 	int		i;
 
 	i = 0;
-	!(T = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
-	!(I = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
+	!(T = (int *)malloc(sizeof(int) * S)) ? m_exit(-1, var) : 0;
+	!(I = (int *)malloc(sizeof(int) * S)) ? m_exit(-1, var) : 0;
 	while (i < S)
 	{
-		T[i] = ft_atoi((const char *)param[i]);
+		T[i] = ft_atoi((const char *)param[i], var);
 		I[i] = T[i];
 		i++;
 	}
@@ -94,9 +94,9 @@ void    param_init(int argc, char **argv, t_var *var)
 	var->tap = 0;
 	var->nb = 0;
 	create_tab(param, var);
-	param_chekin(S, param);
-	param_duplicate(S, param);
+	param_chekin(var, S, param);
+	param_duplicate(var, S, param);
 	A = make_list(var);
-	B = new_list();
+	B = new_list(var);
 	create_chunks(var);
 }

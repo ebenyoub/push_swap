@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:56:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 16:48:16 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:06:44 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	last_chunk(int i, int n, t_var *var)
 	a = 0;
 	size = S - n;
 	var->last_chunk_size = size;
-	!(K[i] = (int *)malloc(sizeof(int) * size)) ? m_exit(-1) : 0;
+	!(K[i] = (int *)malloc(sizeof(int) * size)) ? m_exit(-1, var) : 0;
 	while (a < size)
 		K[i][a++] = I[n++];
 }
@@ -35,11 +35,11 @@ void	create_chunks(t_var *var)
 	n = 0;
 	H = (S % P == 0) ? false : true;
 	H ? P = P + 1 : 0;
-	!(K = (int **)malloc(sizeof(int *) * P)) ? m_exit(-1) : 0;
+	!(K = (int **)malloc(sizeof(int *) * P)) ? m_exit(-1, var) : 0;
 	while (i < P - (H ? 1 : 0))
 	{
 		a = 0;
-		!(K[i] = (int *)malloc(sizeof(int) * C)) ? m_exit(-1) : 0;
+		!(K[i] = (int *)malloc(sizeof(int) * C)) ? m_exit(-1, var) : 0;
 		while (a < C)
 		{
 			K[i][a] = I[n];

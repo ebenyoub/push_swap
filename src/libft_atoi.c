@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:42:56 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 13:41:48 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:13:39 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int             ft_isdigit(int c)
 	return (c >= '0' && c <= '9' ? 1 : 0);
 }     
 
-int		ft_atoi(const char *str)
+int		ft_atoi(const char *str, t_var *var)
 {
 	long		i;
 	long		sign;
@@ -38,7 +38,7 @@ int		ft_atoi(const char *str)
 	while (ft_isdigit(str[i]) == 1)
 	{
 		result = result * 10 + (str[i] - 48);
-		result > INT_MAX || result < INT_MIN ? m_exit(-1) : 0;
+		result > INT_MAX || result < INT_MIN ? m_exit(-1, var) : 0;
 		i++;
 	}
 	return (result * sign);
