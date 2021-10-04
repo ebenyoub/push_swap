@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:56:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 14:12:02 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 14:31:56 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	create_chunks(t_var *var)
 	i = 0;
 	n = 0;
 
-	!(K = (int **)malloc(sizeof(int *) * P + 1)) ? m_exit(-1) : 0;
+	if (!(K = (int **)malloc(sizeof(int *) * P + (S % P == 0) ? 1 : 0)))
+		m_exit(-1);
 	while (i < P)
 	{
 		a = 0;
