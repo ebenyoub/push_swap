@@ -17,7 +17,7 @@ void    free_tab(int **tab, t_var *var)
     int     i;
 
     i = 0;
-    while (i < P + (H ? 1 : 0))
+    while (i < P)
     {
         tab[i] ? free(tab[i]) : 0;
         i++;
@@ -31,6 +31,8 @@ void    push_free(t_var *var)
 	free_tab(K, var);
 	T ? free(T) : 0;
     I ? free(I) : 0;
+	T = NULL;
+	I = NULL;
 }
 
 void    m_exit(int err, t_var *var)

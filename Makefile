@@ -36,7 +36,7 @@ $(BUILDDIR)%.o:$(SRCDIR)%.c
 	$(CC) $(CFLAGS) -I$(LIBINC) -I$(INC) -o $@ -c $<
 
 $(NAME): $(BUILDOBJS)
-	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $(BUILDOBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(BUILDOBJS)
 
 $(LIBFT):
 	make -C $(LIBDIR)

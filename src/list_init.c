@@ -49,7 +49,6 @@ t_list	*make_list(t_var *var)
 			i++;
 		}
 	}
-	T = NULL;
 	return (lst);
 }
 
