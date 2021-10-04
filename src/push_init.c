@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 16:04:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 16:35:10 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,19 @@ void    param_init(int argc, char **argv, t_var *var)
 	S = param_size(param);
 	P = S <= 100 ? 5 : 11;
 	C = S <= 100 ? S / 5 : S / 11;
-	create_tab(param, var);
-	param_chekin(S, param);
-	param_duplicate(S, param);
-	A = make_list(var);
-	B = new_list();
+	var->chunk_tabs = NULL;
+	var->index = NULL;
+	var->tab = NULL;
 	var->flag = false;
 	var->alt = false;
 	var->last_chunk_flag = false;
 	var->last_chunk_size = 0;
 	var->tap = 0;
 	var->nb = 0;
+	create_tab(param, var);
+	param_chekin(S, param);
+	param_duplicate(S, param);
+	A = make_list(var);
+	B = new_list();
+	create_chunks(var);
 }
