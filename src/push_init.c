@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 17:33:15 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 14:11:04 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ void	create_tab(char **param, t_var *var)
 	int		i;
 
 	i = 0;
-	!(var->tab = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
-	!(var->index = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
+	!(T = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
+	!(I = (int *)malloc(sizeof(int) * S)) ? m_exit(-1) : 0;
 	while (i < S)
 	{
-		var->tab[i] = ft_atoi((const char *)param[i]);
-		var->index[i] = var->tab[i];
+		T[i] = ft_atoi((const char *)param[i]);
+		I[i] = T[i];
 		i++;
 	}
 	sort_index(var);
@@ -88,9 +88,10 @@ void    param_init(int argc, char **argv, t_var *var)
 	param_chekin(S, param);
 	param_duplicate(S, param);
 	A = make_list(var);
-	B = new_list(); 
+	B = new_list();
 	var->flag = false;
 	var->alt = false;
+	var->last_chunk_flag = false;
 	var->last_chunk_size = 0;
 	var->tap = 0;
 	var->nb = 0;

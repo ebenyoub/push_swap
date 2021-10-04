@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/27 22:21:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 14:05:28 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	lstpop_front(char c, t_var *var)
 	t_node	*tmp;
 	t_list	*lst;
 
-	(c == 'a') ? (lst = var->la) : (lst = var->lb);
+	lst = c == 'a' ? A : B;
 	if (!(lst->be))
 		return;
 	if (!lst->be->next)
@@ -84,12 +84,25 @@ void	lstpop_front(char c, t_var *var)
 void	lstpop_back(char c, t_var *var)
 {
 	t_list	*lst;
+	t_node	*tmp;
 
-	(c == 'a') ? (lst = A) : (lst = B);
-	if (!lst->be)
+	lst = c == 'a' ? A : B;
+	if (lst->length == 0)
 		return;
-	lst->end = lst->end->back;
-	free(lst->end->next);
-	lst->end->next = NULL;
-	lst->length--;
+	else if (lst->length == 1)
+	{
+		free(lst->be);
+		lst->be = NULL;
+		lst->length--;
+		return ;
+	}
+	else
+	{
+		tmp = lst->end;
+		lst->end = lst->end->back;
+		lst->end->next = NULL;
+		free(tmp);
+		tmp = NULL;
+		lst->length--;
+	}
 }

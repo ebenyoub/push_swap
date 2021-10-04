@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 12:57:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 13:54:32 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 14:05:10 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ t_list	*make_list(t_var *var)
 	free(T);
 	T = NULL;
 	return (lst);
+}
+
+void	free_list(t_var *var)
+{
+	while (A->be)
+		lstpop_back('a', var);
+	while (B->be)
+		lstpop_back('b', var);
+	free(A);
+	free(B);
 }

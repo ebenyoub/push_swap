@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 18:57:43 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 14:10:11 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define P	var->part
 # define C	var->chunk_len
 # define K	var->chunk_tabs
+# define H	var->last_chunk_flag
 # define S	var->size
 # define T	var->tab
 # define I	var->index
@@ -62,6 +63,7 @@ typedef struct	s_var
 	int				part;
 	int				nb;
 	int				last_chunk_size;
+	bool			last_chunk_flag;
 	int				**chunk_tabs;
 	bool			flag;
 	bool			alt;
@@ -106,6 +108,8 @@ void	create_chunks(t_var *var);
 void    sort_big(t_var *var);
 
 void    free_tab(int **tab, t_var *var);
+void	free_list(t_var *var);
+void    push_free(t_var *var);
 
 void    swp_sa(t_var *var);
 void    swp_sb(t_var *var);
