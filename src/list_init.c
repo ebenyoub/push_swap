@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 12:57:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 14:41:15 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 14:51:48 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,9 @@ void	free_list(t_var *var)
 	if (A->be || B->be)
 	{
 		while (A->be)
-
-			lstpop_back('a', var);
+			A->be ? lstpop_back('a', var) : 0;
 		while (B->be)
-			lstpop_back('b', var);
+			B->be ? lstpop_back('b', var) : 0;
 	}
 	free(A);
 	free(B);
