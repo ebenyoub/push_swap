@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:25:22 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 19:22:46 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 16:10:53 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ bool	is_sorted_lst(t_node *lst)
 {
 	int	nbr;
 
+	if (!lst || !lst->next)
+		return (true);
 	nbr = lst->nb;
 	lst = lst->next;
 	while (lst && lst->nb > nbr)
