@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:56:03 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 18:53:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:19:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void	sort_index(t_var *var)
 
 	i = 0;
 	j = 0;
-	while (i < S)
+	while (i < var->size)
 	{
 		j = i;
-		while (j < S)
+		while (j < var->size)
 		{
-			if (I[j] < I[i])
+			if (var->index[j] < var->index[i])
 			{
-				tmp = I[i];
-				I[i] = I[j];
-				I[j] = tmp;
+				tmp = var->index[i];
+				var->index[i] = var->index[j];
+				var->index[j] = tmp;
 			}
 			j++;
 		}

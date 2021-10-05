@@ -5,15 +5,15 @@ void	nbr_four(t_var *var)
 	bool	i;
 
 	i = false;
-	if ((B->be->nb) < (A->be->next->nb))
+	if ((var->lb->be->nb) < (var->la->be->next->nb))
 	{
 		psh_pa(var);
-		if (A->be->nb > A->be->next->nb)
+		if (var->la->be->nb > var->la->be->next->nb)
 			swp_sa(var);
 	}
 	else
 	{
-		if (B->be->nb < A->end->nb)
+		if (var->lb->be->nb < var->la->end->nb)
 		{
 			rev_rra(var);
 			i = true;
@@ -28,7 +28,7 @@ void	nbr_four(t_var *var)
 void	nbr_five_next(t_var *var)
 {
 	{
-		if (B->be->nb < A->end->nb)
+		if (var->lb->be->nb < var->la->end->nb)
 		{
 			rev_rra(var);
 			psh_pa(var);
@@ -45,13 +45,13 @@ void	nbr_five_next(t_var *var)
 
 void	nbr_five(t_var *var)
 {
-	if (B->be->nb < A->be->next->nb)
+	if (var->lb->be->nb < var->la->be->next->nb)
 	{
 		psh_pa(var);
-		if (A->be->nb > A->be->next->nb)
+		if (var->la->be->nb > var->la->be->next->nb)
 			swp_sa(var);
 	}
-	else if (B->be->nb > A->end->back->nb)
+	else if (var->lb->be->nb > var->la->end->back->nb)
 		nbr_five_next(var);
 	else
 	{

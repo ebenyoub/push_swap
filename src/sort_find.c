@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 15:06:55 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:09:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Created: 2021/10/05 15:42:51 by ebenyoub          #+#    #+#             */
+/*   Updated: 2021/10/05 15:43:39 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	is_in_chunk(int nb, int *chunk, t_var *var)
 	int		i;
 
 	i = 0;
-	while (i < C)
+	while (i < var->chunk_len)
 	{
 		if (nb == chunk[i])
 			return (true);
@@ -35,9 +35,9 @@ int	find_top(int c, t_var *var)
 	lst = q_a_or_b('b', var);
 	while (i < lena_or_lenb(var))
 	{
-		if (!Q && is_in_chunk(lst->nb, K[c], var))
+		if (!var->alt && is_in_chunk(lst->nb, var->chunk_tabs[c], var))
 			return (i + 1);
-		else if (Q && lst->nb == var->nb)
+		else if (var->alt && lst->nb == var->nb)
 			return (i + 1);
 		lst = lst->next;
 		i++;
@@ -54,9 +54,9 @@ int	find_bot(int c, t_var *var)
 	lst = q_a_or_b('e', var);
 	while (i < lena_or_lenb(var))
 	{
-		if (!Q && is_in_chunk(lst->nb, K[c], var))
+		if (!var->alt && is_in_chunk(lst->nb, var->chunk_tabs[c], var))
 			return (i + 1);
-		else if (Q && lst->nb == var->nb)
+		else if (var->alt && lst->nb == var->nb)
 			return (i + 1);
 		lst = lst->back;
 		i++;

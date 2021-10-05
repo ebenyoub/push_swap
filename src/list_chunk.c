@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:52:48 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 21:33:07 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:19:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	create_tab(char **param, t_var *var)
 	int		i;
 
 	i = 0;
-	T = (int *)malloc(sizeof(int) * S);
-	if (!T)
+	var->tab = (int *)malloc(sizeof(int) * var->size);
+	if (!var->tab)
 		m_exit(-1, var);
-	I = (int *)malloc(sizeof(int) * S);
-	if (!I)
+	var->index = (int *)malloc(sizeof(int) * var->size);
+	if (!var->index)
 		m_exit(-1, var);
-	while (i < S)
+	while (i < var->size)
 	{
-		T[i] = ft_atoi((const char *)param[i], var);
-		I[i] = T[i];
+		var->tab[i] = ft_atoi((const char *)param[i], var);
+		var->index[i] = var->tab[i];
 		i++;
 	}
 	sort_index(var);
@@ -38,13 +38,13 @@ static void	last_chunk(int i, int n, t_var *var)
 	int		size;
 
 	a = 0;
-	size = S - n;
+	size = var->size - n;
 	var->last_chunk_size = size;
-	K[i] = (int *)malloc(sizeof(int) * size);
-	if (!K[i])
+	var->chunk_tabs[i] = (int *)malloc(sizeof(int) * size);
+	if (!var->chunk_tabs[i])
 		m_exit(-1, var);
 	while (a < size)
-		K[i][a++] = I[n++];
+		var->chunk_tabs[i][a++] = var->index[n++];
 }
 
 static void	create_chunk_next(int *i, int *n, t_var *var)
@@ -52,18 +52,18 @@ static void	create_chunk_next(int *i, int *n, t_var *var)
 	int		a;
 	int		part;
 
-	part = P;
-	if (H)
+	part = var->part;
+	if (var->last_chunk_flag)
 		part = part - 1;
 	while (*i < part)
 	{
 		a = 0;
-		K[*i] = (int *)malloc(sizeof(int) * C);
-		if (!K[*i])
+		var->chunk_tabs[*i] = (int *)malloc(sizeof(int) * var->chunk_len);
+		if (!var->chunk_tabs[*i])
 			m_exit(-1, var);
-		while (a < C)
+		while (a < var->chunk_len)
 		{
-			K[*i][a] = I[*n];
+			var->chunk_tabs[*i][a] = var->index[*n];
 			a = a + 1;
 			*n = *n + 1;
 		}
@@ -78,15 +78,15 @@ void	create_chunks(t_var *var)
 
 	i = 0;
 	n = 0;
-	if (S % P > 0)
+	if (var->size % var->part > 0)
 	{
-		H = true;
-		P = P + 1;
+		var->last_chunk_flag = true;
+		var->part = var->part + 1;
 	}
-	K = (int **)malloc(sizeof(int *) * P);
-	if (!K)
+	var->chunk_tabs = (int **)malloc(sizeof(int *) * var->part);
+	if (!var->chunk_tabs)
 		m_exit(-1, var);
 	create_chunk_next(&i, &n, var);
-	if (H)
+	if (var->last_chunk_flag)
 		last_chunk(i, n, var);
 }

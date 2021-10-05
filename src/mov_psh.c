@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 19:47:45 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:19:29 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	psh_pb(t_var *var)
 {
 	t_node	*new;
 
-	if (!(A->be))
+	if (!(var->la->be))
 		return ;
-	new = new_element(A->be->nb, var);
+	new = new_element(var->la->be->nb, var);
 	lstpop_front('a', var);
-	if (!B->be)
+	if (!var->lb->be)
 	{
-		B->be = new;
-		B->end = new;
-		B->length++;
+		var->lb->be = new;
+		var->lb->end = new;
+		var->lb->length++;
 	}
 	else
 		lstadd_front('b', var, new);
@@ -36,15 +36,15 @@ void	psh_pa(t_var *var)
 {
 	t_node	*new;
 
-	if (!B->be)
+	if (!var->lb->be)
 		return ;
-	new = new_element(B->be->nb, var);
+	new = new_element(var->lb->be->nb, var);
 	lstpop_front('b', var);
-	if (!(A)->be)
+	if (!(var->la)->be)
 	{
-		A->be = new;
-		A->end = new;
-		A->length++;
+		var->la->be = new;
+		var->la->end = new;
+		var->la->length++;
 	}
 	else
 		lstadd_front('a', var, new);
@@ -54,7 +54,7 @@ void	psh_pa(t_var *var)
 
 void	q_push(t_var *var)
 {
-	if (!Q)
+	if (!var->alt)
 		psh_pb(var);
 	else
 		psh_pa(var);

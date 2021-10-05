@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:41:06 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:52:20 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:19:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	sort_final(t_var *var)
 	int		i;
 	int		n;
 
-	i = S;
-	while (B->be != NULL)
+	i = var->size;
+	while (var->lb->be != NULL)
 	{
 		i--;
-		var->nb = I[i];
+		var->nb = var->index[i];
 		n = find_nb(0, var);
 		sort_push(n, var);
 	}

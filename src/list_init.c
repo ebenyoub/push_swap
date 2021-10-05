@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 12:57:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 19:21:37 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:19:04 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ t_list	*make_list(t_var *var)
 
 	i = 0;
 	lst = new_list(var);
-	if (S > 0)
+	if (var->size > 0)
 	{
-		while (i < S)
+		while (i < var->size)
 		{	
-			lstadd_back(var, lst, T[i]);
+			lstadd_back(var, lst, var->tab[i]);
 			i++;
 		}
 	}
@@ -58,19 +58,19 @@ t_list	*make_list(t_var *var)
 
 void	free_list(t_var *var)
 {
-	if (A->be || B->be)
+	if (var->la->be || var->lb->be)
 	{
-		while (A->be)
+		while (var->la->be)
 		{
-			if (A->be)
+			if (var->la->be)
 				lstpop_back('a', var);
 		}
-		while (B->be)
+		while (var->lb->be)
 		{
-			if (B->be)
+			if (var->lb->be)
 				lstpop_back('b', var);
 		}
 	}
-	free(A);
-	free(B);
+	free(var->la);
+	free(var->lb);
 }

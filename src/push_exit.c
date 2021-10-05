@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:26:18 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 19:28:32 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:19:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_tab(int **tab, t_var *var)
 	int	i;
 
 	i = 0;
-	while (i < P)
+	while (i < var->part)
 	{
 		if (tab[i])
 			free(tab[i]);
@@ -30,13 +30,13 @@ void	free_tab(int **tab, t_var *var)
 void	push_free(t_var *var)
 {
 	free_list(var);
-	free_tab(K, var);
-	if (T)
-		free(T);
-	if (I)
-		free(I);
-	T = NULL;
-	I = NULL;
+	free_tab(var->chunk_tabs, var);
+	if (var->tab)
+		free(var->tab);
+	if (var->index)
+		free(var->index);
+	var->tab = NULL;
+	var->index = NULL;
 }
 
 void	m_exit(int err, t_var *var)
