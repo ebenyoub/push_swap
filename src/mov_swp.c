@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void    swp_sa(t_var *var)
+void	swp_sa(t_var *var)
 {
-	int     tmp;
+	int	tmp;
 
 	tmp = (A->be->nb);
 	if (!(A)->be || !(A)->be->next)
@@ -25,12 +25,12 @@ void    swp_sa(t_var *var)
 	{
 		ft_putstr("sa\n");
 		var->tap++;
-	} 
+	}
 }
 
-void    swp_sb(t_var *var)
+void	swp_sb(t_var *var)
 {
-	int     tmp;
+	int	tmp;
 
 	tmp = B->be->nb;
 	if (!B->be || !B->be->next)
@@ -44,7 +44,7 @@ void    swp_sb(t_var *var)
 	}
 }
 
-void    swp_ss(t_var *var)
+void	swp_ss(t_var *var)
 {
 	F = true;
 	swp_sa(var);

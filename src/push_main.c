@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-int     main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_var	*var;
 
-	if (!(var = (t_var *)malloc(sizeof(*var))))
+	var = (t_var *)malloc(sizeof(*var));
+	if (!var)
 		m_exit(-1, var);
 	param_init(argc, argv, var);
 	if (S == 1 || is_sorted_lst(A->be))
@@ -26,7 +27,6 @@ int     main(int argc, char **argv)
 		sort_small(var);
 	else
 		sort_big(var);
-	is_sorted_lst(A->be) ? printf("\nOK\n") : printf("\nKO\n");
 	push_free(var);
 	free(var);
 	return (0);

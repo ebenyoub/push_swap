@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void    print_lst(t_node *lst)
+void	print_lst(t_node *lst)
 {
 	if (!lst)
 	{
@@ -30,9 +30,9 @@ void    print_lst(t_node *lst)
 	ft_putstr("\n");
 }
 
-bool		is_sorted_lst(t_node *lst)
+bool	is_sorted_lst(t_node *lst)
 {
-	int		nbr;
+	int	nbr;
 
 	nbr = lst->nb;
 	lst = lst->next;

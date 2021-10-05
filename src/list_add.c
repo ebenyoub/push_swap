@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void    lstadd_front(char c, t_var *var, t_node *new)
+void	lstadd_front(char c, t_var *var, t_node *new)
 {
 	t_list	*lst;
 
@@ -21,7 +21,7 @@ void    lstadd_front(char c, t_var *var, t_node *new)
 	{
 		if (!lst->be)
 		{
-			lst->length = 0; 
+			lst->length = 0;
 			lst->be = new;
 			lst->end = new;
 		}
@@ -35,7 +35,7 @@ void    lstadd_front(char c, t_var *var, t_node *new)
 	}
 }
 
-void    lstadd_back(t_var *var, t_list *lst, int nb)
+void	lstadd_back(t_var *var, t_list *lst, int nb)
 {
 	t_node	*new;
 
@@ -65,7 +65,7 @@ void	lstpop_front(char c, t_var *var)
 
 	lst = a_or_b(c, var);
 	if (!(lst->be))
-		return;
+		return ;
 	if (!lst->be->next)
 	{
 		free(lst->be);
@@ -88,7 +88,7 @@ void	lstpop_back(char c, t_var *var)
 
 	lst = a_or_b(c, var);
 	if (lst->length == 0)
-		return;
+		return ;
 	else if (lst->length == 1)
 	{
 		free(lst->be);

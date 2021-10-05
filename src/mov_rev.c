@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void    rev_rra(t_var *var)
+void	rev_rra(t_var *var)
 {
 	t_node	*tmp;
 
@@ -28,7 +28,7 @@ void    rev_rra(t_var *var)
 	}
 }
 
-void    rev_rrb(t_var *var)
+void	rev_rrb(t_var *var)
 {
 	t_node	*tmp;
 
@@ -40,17 +40,17 @@ void    rev_rrb(t_var *var)
 	if (!F)
 	{
 		ft_putstr("rrb\n");
-		var->tap++; 
+		var->tap++;
 	}
 }
 
-void    rev_rrr(t_var *var)
+void	rev_rrr(t_var *var)
 {
 	F = true;
-    rev_rra(var);
-    rev_rrb(var);
+	rev_rra(var);
+	rev_rrb(var);
 	F = false;
-    ft_putstr("rrr\n");
+	ft_putstr("rrr\n");
 	var->tap++;
 }
 
@@ -59,5 +59,5 @@ void	q_rev(t_var *var)
 	if (!Q)
 		rev_rra(var);
 	else
-		rev_rrb(var);	
+		rev_rrb(var);
 }

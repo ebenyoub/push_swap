@@ -26,7 +26,6 @@
 # define A	var->la
 # define B	var->lb
 # define F	var->flag
-# define M	var->median
 # define P	var->part
 # define C	var->chunk_len
 # define K	var->chunk_tabs
@@ -88,7 +87,7 @@ int		ft_atoi(const char *str, t_var *var);
 int     ft_strlen(char *str);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(char *s1);
-char	**ft_split(char const *s, char c, t_var *var);
+char	**ft_split(char *str);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 20:37:59 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 21:07:05 by ebenyoub         ###   ########lyon.fr   */
+/*   Created: 2021/10/05 15:06:55 by ebenyoub          #+#    #+#             */
+/*   Updated: 2021/10/05 15:09:52 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-bool    is_in_chunk(int nb, int *chunk, t_var *var)
+bool	is_in_chunk(int nb, int *chunk, t_var *var)
 {
 	int		i;
 
@@ -26,14 +26,12 @@ bool    is_in_chunk(int nb, int *chunk, t_var *var)
 	return (false);
 }
 
-int     find_top(int c, t_var *var)
+int	find_top(int c, t_var *var)
 {
 	t_node	*lst;
-	int     i;
+	int		i;
 
-	
 	i = 0;
-	
 	lst = q_a_or_b('b', var);
 	while (i < lena_or_lenb(var))
 	{
@@ -47,10 +45,10 @@ int     find_top(int c, t_var *var)
 	return (0);
 }
 
-int     find_bot(int c, t_var *var)
+int	find_bot(int c, t_var *var)
 {
 	t_node	*lst;
-	int     i;
+	int		i;
 
 	i = 0;
 	lst = q_a_or_b('e', var);
@@ -66,7 +64,7 @@ int     find_bot(int c, t_var *var)
 	return (0);
 }
 
-int		find_nb(int c, t_var *var)
+int	find_nb(int c, t_var *var)
 {
 	int		n;
 	int		top;

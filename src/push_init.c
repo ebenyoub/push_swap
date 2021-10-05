@@ -14,8 +14,8 @@
 
 static void	param_chekin(t_var *var, int argc, char **argv)
 {
-	int a;
-	int i;
+	int	a;
+	int	i;
 
 	a = 1;
 	while (a < argc)
@@ -35,8 +35,8 @@ static void	param_chekin(t_var *var, int argc, char **argv)
 
 static void	param_duplicate(t_var *var, int argc, char **argv)
 {
-	int	    i;
-	int		j;
+	int	i;
+	int	j;
 
 	j = 0;
 	while (argv[j] && j < argc)
@@ -52,9 +52,9 @@ static void	param_duplicate(t_var *var, int argc, char **argv)
 	}
 }
 
-int     	param_size(char **tab)
+int	param_size(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -84,15 +84,14 @@ static void	param_init_next(char **param, t_var *var)
 	create_chunks(var);
 }
 
-void    	param_init(int argc, char **argv, t_var *var)
+void	param_init(int argc, char **argv, t_var *var)
 {
 	char	**param;
 
 	if (argc == 2)
-		param = ft_split((const char *)argv[1], ' ', var);
+		param = ft_split(argv[1]);
 	else
 		param = &argv[1];
-	printf("tab[0] = %s", var->sp_tab[0]);
 	S = param_size(param);
 	if (S <= 100)
 	{

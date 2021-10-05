@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	sort_push(int n, t_var *var)
 {
@@ -34,11 +34,11 @@ void	sort_push(int n, t_var *var)
 	q_push(var);
 }
 
-void    sort_big(t_var *var)
+void	sort_big(t_var *var)
 {
-	int     c;
-	int		n;
-	int		i;
+	int	c;
+	int	n;
+	int	i;
 
 	c = 0;
 	i = 0;

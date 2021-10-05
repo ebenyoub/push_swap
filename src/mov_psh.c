@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void    psh_pb(t_var *var)
+void	psh_pb(t_var *var)
 {
 	t_node	*new;
 
@@ -28,11 +28,11 @@ void    psh_pb(t_var *var)
 	}
 	else
 		lstadd_front('b', var, new);
-	ft_putstr("pb\n"); 
+	ft_putstr("pb\n");
 	var->tap++;
 }
 
-void    psh_pa(t_var *var)
+void	psh_pa(t_var *var)
 {
 	t_node	*new;
 
@@ -48,7 +48,7 @@ void    psh_pa(t_var *var)
 	}
 	else
 		lstadd_front('a', var, new);
-	ft_putstr("pa\n"); 
+	ft_putstr("pa\n");
 	var->tap++;
 }
 
@@ -57,5 +57,5 @@ void	q_push(t_var *var)
 	if (!Q)
 		psh_pb(var);
 	else
-		psh_pa(var);	
+		psh_pa(var);
 }

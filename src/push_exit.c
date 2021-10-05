@@ -12,9 +12,9 @@
 
 #include "../inc/push_swap.h"
 
-void    free_tab(int **tab, t_var *var)
+void	free_tab(int **tab, t_var *var)
 {
-	int     i;
+	int	i;
 
 	i = 0;
 	while (i < P)
@@ -27,7 +27,7 @@ void    free_tab(int **tab, t_var *var)
 		free(tab);
 }
 
-void    push_free(t_var *var)
+void	push_free(t_var *var)
 {
 	free_list(var);
 	free_tab(K, var);
@@ -39,7 +39,7 @@ void    push_free(t_var *var)
 	I = NULL;
 }
 
-void    m_exit(int err, t_var *var)
+void	m_exit(int err, t_var *var)
 {
 	if (err == -1)
 		ft_putstr("Error\n");
