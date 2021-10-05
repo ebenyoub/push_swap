@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:30:42 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 15:59:04 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ void	psh_pa(t_var *var);
 void	psh_pb(t_var *var);
 void	rot_ra(t_var *var);
 void	rot_rb(t_var *var);
+void	rev_rra(t_var *var);
+void	rev_rrb(t_var *var);
 void	qrot_rr(t_var *var);
 void	qrev_rra(t_var *var);
 void	qrev_rrb(t_var *var);
