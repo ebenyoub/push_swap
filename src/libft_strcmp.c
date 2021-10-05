@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 17:06:20 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/01 18:10:51 by ebenyoub         ###   ########lyon.fr   */
+/*   Created: 2021/10/04 17:56:10 by ebenyoub          #+#    #+#             */
+/*   Updated: 2021/10/04 17:57:31 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
@@ -31,7 +31,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	unsigned char	*d;
 	unsigned char	*s;

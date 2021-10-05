@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:18:55 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 23:07:14 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void     param_chekin(t_var *var, int argc, char **argv)
+static void	param_chekin(t_var *var, int argc, char **argv)
 {
 	int a;
 	int i;
@@ -25,14 +25,15 @@ void     param_chekin(t_var *var, int argc, char **argv)
 			i++;
 		while (argv[a][i])
 		{
-			(!ft_isdigit(argv[a][i])) ? m_exit(-1, var) : 0;
+			if (!ft_isdigit(argv[a][i]))
+				m_exit(-1, var);
 			i++;
 		}
 		a++;
 	}
 }
 
-void	param_duplicate(t_var *var, int argc, char **argv)
+static void	param_duplicate(t_var *var, int argc, char **argv)
 {
 	int	    i;
 	int		j;
@@ -43,14 +44,15 @@ void	param_duplicate(t_var *var, int argc, char **argv)
 		i = 1 + j;
 		while (argv[i] && i < argc)
 		{
-			(!ft_strcmp(argv[i], argv[j])) ? m_exit(-1, var) : 0;
+			if (!ft_strcmp(argv[i], argv[j]))
+				m_exit(-1, var);
 			i++;
 		}
 		j++;
 	}
 }
 
-int     param_size(char **tab)
+int     	param_size(char **tab)
 {
 	int i;
 
@@ -60,33 +62,14 @@ int     param_size(char **tab)
 	return (i);
 }
 
-void	create_tab(char **param, t_var *var)
+static void	param_init_next(char **param, t_var *var)
 {
-	int		i;
-
-	i = 0;
-	!(T = (int *)malloc(sizeof(int) * S)) ? m_exit(-1, var) : 0;
-	!(I = (int *)malloc(sizeof(int) * S)) ? m_exit(-1, var) : 0;
-	while (i < S)
-	{
-		T[i] = ft_atoi((const char *)param[i], var);
-		I[i] = T[i];
-		i++;
-	}
-	sort_index(var);
-}
-
-void    param_init(int argc, char **argv, t_var *var)
-{
-	char	**param;
-
-	param = (argc == 2) ? ft_split((const char *)argv[1], ' ') : &argv[1];
-	S = param_size(param);
-	P = S <= 100 ? 5 : 11;
-	C = S <= 100 ? S / 5 : S / 11;
 	var->chunk_tabs = NULL;
 	var->index = NULL;
 	var->tab = NULL;
+	var->sp_count = 0;
+	var->sp_tab = NULL;
+	var->sp_mark = NULL;
 	var->flag = false;
 	var->alt = false;
 	var->last_chunk_flag = false;
@@ -99,4 +82,27 @@ void    param_init(int argc, char **argv, t_var *var)
 	A = make_list(var);
 	B = new_list(var);
 	create_chunks(var);
+}
+
+void    	param_init(int argc, char **argv, t_var *var)
+{
+	char	**param;
+
+	if (argc == 2)
+		param = ft_split((const char *)argv[1], ' ', var);
+	else
+		param = &argv[1];
+	printf("tab[0] = %s", var->sp_tab[0]);
+	S = param_size(param);
+	if (S <= 100)
+	{
+		P = 5;
+		C = S / 5;
+	}
+	else
+	{
+		P = 11;
+		C = S / 11;
+	}
+	param_init_next(param, var);
 }

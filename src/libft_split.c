@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 16:17:26 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/21 21:05:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 23:06:32 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-static int		count_wd(char *str, char c)
+static	int	count_wd(char *str, char c)
 {
 	int		i;
 	int		nb;
@@ -33,7 +33,7 @@ static int		count_wd(char *str, char c)
 	return (nb);
 }
 
-static int		*word_mark(char *str, char c, int nb)
+static	int	*word_mark(char *str, char c, int nb)
 {
 	int		i;
 	int		a;
@@ -42,6 +42,8 @@ static int		*word_mark(char *str, char c, int nb)
 	i = 0;
 	a = 0;
 	tab = malloc(sizeof(int) * nb);
+	if (tab == NULL)
+		return (NULL);
 	while (str[i] && (a < nb))
 	{
 		if (str[i] == c)
@@ -57,7 +59,7 @@ static int		*word_mark(char *str, char c, int nb)
 	return (tab);
 }
 
-static char		*malloc_word(char *str, char c)
+static	char	*malloc_word(char *str, char c)
 {
 	int		i;
 	char	*word;
@@ -75,35 +77,40 @@ static char		*malloc_word(char *str, char c)
 	return (word);
 }
 
-static char		**make_tab(char *str, char c)
+static	char	**make_tab(char *str, char c, t_var *var)
 {
 	int		i;
-	int		count;
-	int		*mark;
-	char	**tab;
 
 	i = 0;
-	count = count_wd(str, c);
-	if (!(tab = malloc(sizeof(char *) * (count + 1))))
-		return (NULL);
-	tab[count] = NULL;
-	if (!(mark = word_mark(str, c, count)))
-		return (NULL);
-	while (i < count)
+	while (i < var->sp_count)
 	{
-		if (!(tab[i] = malloc_word(&str[mark[i]], c)))
+		var->sp_tab[i] = malloc_word(&str[var->sp_mark[i]], c);
+		if (var->sp_tab[i] == NULL)
 		{
-			free(mark);
-			ft_free_tab(&tab);
+			free(var->sp_mark);
+			ft_free_tab(&(var->sp_tab));
 			return (NULL);
 		}
 		i++;
 	}
-	free(mark);
-	return (tab);
+	free(var->sp_mark);
+	return (var->sp_tab);
 }
 
-char			**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c, t_var *var)
 {
-		return (s ? make_tab((char *)s, c) : NULL);
+	if (s)
+	{
+		var->sp_count = count_wd((char *)s, c);
+		var->sp_tab = malloc(sizeof(char *) * (var->sp_count + 1));
+		if (var->sp_tab == NULL)
+			return (NULL);
+		var->sp_tab[var->sp_count] = NULL;
+		var->sp_mark = word_mark((char *)s, c, var->sp_count);
+		if (var->sp_mark == NULL)
+			return (NULL);
+		make_tab((char *)s, c, var);
+		return (var->sp_tab);
+	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:25:22 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/09/28 15:40:27 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 19:22:46 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void    print_lst(t_node *lst)
 	ft_putstr("\t");
 	while (lst)
 	{
-		fprintf(stderr, "[%d] ", lst->nb);
+		ft_putstr("[");
+		ft_putnbr(lst->nb);
+		ft_putstr("] ");
 		lst = lst->next;
 	}
 	ft_putstr("\n");
@@ -39,5 +41,7 @@ bool		is_sorted_lst(t_node *lst)
 		nbr = lst->nb;
 		lst = lst->next;
 	}
-	return (!lst ? true : false);
+	if (!lst)
+		return (true);
+	return (false);
 }

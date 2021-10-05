@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 17:28:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 17:20:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 21:10:39 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void    sort_small(t_var *var)
 {
-    A->length == 2 ? sort_two(var) : 0;
-	A->length == 3 ? sort_three(var) : 0;
-	A->length == 4 ? sort_four(var) : 0;
-	A->length == 5 ? sort_five(var) : 0; 
+    if (A->length == 2)
+		sort_two(var);
+	if (A->length == 3)
+		sort_three(var);
+	if (A->length == 4)
+		sort_four(var);
+	if (A->length == 5)
+		sort_five(var); 
 }

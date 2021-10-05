@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:37:59 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 15:53:36 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 21:07:05 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ bool    is_in_chunk(int nb, int *chunk, t_var *var)
 
 	i = 0;
 	while (i < C)
-		if (nb == chunk[i++])
+	{
+		if (nb == chunk[i])
 			return (true);
+		i++;
+	}
 	return (false);
 }
 
@@ -28,9 +31,11 @@ int     find_top(int c, t_var *var)
 	t_node	*lst;
 	int     i;
 
+	
 	i = 0;
-	lst = Q ? B->be : A->be;
-	while (i < (Q ? B->length : A->length))
+	
+	lst = q_a_or_b('b', var);
+	while (i < lena_or_lenb(var))
 	{
 		if (!Q && is_in_chunk(lst->nb, K[c], var))
 			return (i + 1);
@@ -48,8 +53,8 @@ int     find_bot(int c, t_var *var)
 	int     i;
 
 	i = 0;
-	lst = Q ? B->end : A->end;
-	while (i < (Q ? B->length : A->length))
+	lst = q_a_or_b('e', var);
+	while (i < lena_or_lenb(var))
 	{
 		if (!Q && is_in_chunk(lst->nb, K[c], var))
 			return (i + 1);
@@ -69,7 +74,12 @@ int		find_nb(int c, t_var *var)
 
 	top = find_top(c, var);
 	bot = find_bot(c, var);
-	n = (top > bot) ? bot : top;
-	(top > bot) ? n = -n : 0;
+	if (top > bot)
+	{
+		n = bot;
+		n = -n;
+	}
+	else
+		n = top;
 	return (n);
 }

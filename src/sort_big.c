@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:56:50 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:12:08 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 20:38:40 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_push(int n, t_var *var)
 		n = -n;
 		while (n > 0)
 		{
-			!Q ? rev_rra(var) : rev_rrb(var);
+			q_rev(var);
 			n--;
 		}
 	}
@@ -27,11 +27,11 @@ void	sort_push(int n, t_var *var)
 	{
 		while (n > 1)
 		{
-			!Q ? rot_ra(var) : rot_rb(var);
+			q_rot(var);
 			n--;
 		}
 	}
-	!Q ? psh_pb(var) : psh_pa(var);
+	q_push(var);
 }
 
 void    sort_big(t_var *var)
@@ -43,13 +43,16 @@ void    sort_big(t_var *var)
 	c = 0;
 	i = 0;
 	n = 0;
-	while (L > 0)
+	while (A->length > 0)
 	{
 		n = find_nb(c, var);
 		sort_push(n, var);
 		i++;
-		(i == C) ? c++ : 0;
-		(i == C) ? i = 0 : 0;
+		if (i == C)
+		{
+			c++;
+			i = 0;
+		}
 	}
 	Q = true;
 	sort_final(var);

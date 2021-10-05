@@ -6,7 +6,7 @@
 #    By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/15 21:16:19 by ebenyoub          #+#    #+#              #
-#    Updated: 2021/09/23 15:40:33 by ebenyoub         ###   ########lyon.fr    #
+#    Updated: 2021/10/04 18:18:05 by ebenyoub         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(BUILDDIR)%.o:$(SRCDIR)%.c
 	$(CC) $(CFLAGS) -I$(LIBINC) -I$(INC) -o $@ -c $<
 
 $(NAME): $(BUILDOBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(BUILDOBJS)
+	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $(BUILDOBJS)
 
 $(LIBFT):
 	make -C $(LIBDIR)

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:17:06 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 18:53:52 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    lstadd_front(char c, t_var *var, t_node *new)
 {
 	t_list	*lst;
 
-	(c == 'a') ? (lst = A) : (lst = B);
+	lst = a_or_b(c, var);
 	if (new)
 	{
 		if (!lst->be)
@@ -63,7 +63,7 @@ void	lstpop_front(char c, t_var *var)
 	t_node	*tmp;
 	t_list	*lst;
 
-	lst = c == 'a' ? A : B;
+	lst = a_or_b(c, var);
 	if (!(lst->be))
 		return;
 	if (!lst->be->next)
@@ -86,7 +86,7 @@ void	lstpop_back(char c, t_var *var)
 	t_list	*lst;
 	t_node	*tmp;
 
-	lst = c == 'a' ? A : B;
+	lst = a_or_b(c, var);
 	if (lst->length == 0)
 		return;
 	else if (lst->length == 1)

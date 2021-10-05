@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:43:37 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:12:08 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 19:47:45 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,12 @@ void    psh_pa(t_var *var)
 		lstadd_front('a', var, new);
 	ft_putstr("pa\n"); 
 	var->tap++;
+}
+
+void	q_push(t_var *var)
+{
+	if (!Q)
+		psh_pb(var);
+	else
+		psh_pa(var);	
 }

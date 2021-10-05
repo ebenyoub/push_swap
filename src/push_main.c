@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:04:23 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:06:57 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 20:49:03 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@ int     main(int argc, char **argv)
 {
 	t_var	*var;
 
-	!(var = (t_var *)malloc(sizeof(t_var))) ? m_exit(-1, var) : 0;
+	if (!(var = (t_var *)malloc(sizeof(*var))))
+		m_exit(-1, var);
 	param_init(argc, argv, var);
-	(S == 1 || is_sorted_lst(A->be)) ? m_exit(0, var) : 0;
-	S <= 5 ? sort_small(var) : sort_big(var);
+	if (S == 1 || is_sorted_lst(A->be))
+		m_exit(0, var);
+	print_lst(A->be);
+	if (S <= 5)
+		sort_small(var);
+	else
+		sort_big(var);
+	is_sorted_lst(A->be) ? printf("\nOK\n") : printf("\nKO\n");
 	push_free(var);
 	free(var);
-	// fprintf(stderr, "\n%d coups\n", var->tap);
-	// is_sorted_lst(A->be) ? printf("sorted\n") : printf("dead\n");
 	return (0);
 }

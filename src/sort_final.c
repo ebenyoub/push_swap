@@ -6,16 +6,16 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:41:06 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/02 17:18:24 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 17:52:20 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include	"../inc/push_swap.h"
 
-void    sort_final(t_var *var)
+void	sort_final(t_var *var)
 {
-	int     i;
-	int     n;
+	int		i;
+	int		n;
 
 	i = S;
 	while (B->be != NULL)

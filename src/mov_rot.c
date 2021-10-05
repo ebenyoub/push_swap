@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 00:12:02 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 17:16:05 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/04 19:48:01 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void    rot_ra(t_var *var)
 	tmp = A->be->nb;
 	lstpop_front('a', var);
     lstadd_back(var, A, tmp);
-	!(F) ? ft_putstr("ra\n") : 0;
-	!(F) ? var->tap++ : 0; 
+	if (!F)
+	{
+		ft_putstr("ra\n");
+		var->tap++;
+	}
 }
 
 void    rot_rb(t_var *var)
@@ -34,8 +37,11 @@ void    rot_rb(t_var *var)
 	tmp = B->be->nb;
 	lstpop_front('b', var);
     lstadd_back(var, B, tmp);
-	!(F) ? ft_putstr("rb\n") : 0;
-	!(F) ? var->tap++ : 0; 
+	if (!F)
+	{
+		ft_putstr("rb\n");
+		var->tap++;
+	} 
 }
 
 void    rot_rr(t_var *var)
@@ -46,4 +52,12 @@ void    rot_rr(t_var *var)
 	F = false;
     ft_putstr("rr\n");
 	var->tap++;
+}
+
+void	q_rot(t_var *var)
+{
+	if (!Q)
+		rot_ra(var);
+	else
+		rot_rb(var);	
 }
