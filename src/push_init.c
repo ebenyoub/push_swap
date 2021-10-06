@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 14:49:00 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:46:12 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	param_chekin(t_var *var, int argc, char **argv)
+static void	param_chekin(int argc, char **argv)
 {
 	int	a;
 	int	i;
@@ -23,17 +23,17 @@ static void	param_chekin(t_var *var, int argc, char **argv)
 		i = 0;
 		if (argv[a][i] == '-')
 			i++;
-		while (argv[a][i])
+		while (argv[a] && argv[a][i])
 		{
 			if (!ft_isdigit(argv[a][i]))
-				m_exit(-1, var);
+				list_less_exit();
 			i++;
 		}
 		a++;
 	}
 }
 
-static void	param_duplicate(t_var *var, int argc, char **argv)
+static void	param_duplicate(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -45,7 +45,7 @@ static void	param_duplicate(t_var *var, int argc, char **argv)
 		while (argv[i] && i < argc)
 		{
 			if (!ft_strcmp(argv[i], argv[j]))
-				m_exit(-1, var);
+				list_less_exit();
 			i++;
 		}
 		j++;
@@ -70,17 +70,17 @@ static void	param_init_next(char **param, t_var *var)
 	var->sp_count = 0;
 	var->sp_tab = NULL;
 	var->sp_mark = NULL;
-	var->flag = false;
-	var->alt = false;
-	var->last_chunk_flag = false;
+	var->flag = FALSE;
+	var->alt = FALSE;
+	var->last_chunk_flag = FALSE;
 	var->last_chunk_size = 0;
 	var->tap = 0;
 	var->nb = 0;
 	create_tab(param, var);
-	param_chekin(var, var->size, param);
-	param_duplicate(var, var->size, param);
+	param_chekin(var->size, param);
+	param_duplicate(var->size, param);
 	var->la = make_list(var);
-	var->lb = new_list(var);
+	var->lb = new_list();
 	create_chunks(var);
 }
 

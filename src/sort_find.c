@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:42:51 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 11:57:06 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:24:09 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-bool	is_in_chunk(int nb, int c, t_var *var)
+uint8_t	is_in_chunk(int nb, int c, t_var *var)
 {
 	int		i;
 	int		size;
@@ -25,10 +25,10 @@ bool	is_in_chunk(int nb, int c, t_var *var)
 	while (var->chunk_tabs[c] && i < size)
 	{
 		if (nb == var->chunk_tabs[c][i])
-			return (true);
+			return (TRUE);
 		i++;
 	}
-	return (false);
+	return (FALSE);
 }
 
 int	find_top(int c, t_var *var)

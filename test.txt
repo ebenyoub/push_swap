@@ -1,0 +1,1 @@
+ARG="`ruby -e "puts (-200..500).to_a.shuffle.join(' ')"`"; ./push_swap $ARG | ./checker_Mac $ARG

@@ -6,32 +6,32 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 12:57:36 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:19:04 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:51:44 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_node	*new_element(int nb, t_var *var)
+t_node	*new_element(int nb)
 {
 	t_node	*new;
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
-		m_exit(-1, var);
+		list_less_exit();
 	new->next = NULL;
 	new->back = NULL;
 	new->nb = nb;
 	return (new);
 }
 
-t_list	*new_list(t_var *var)
+t_list	*new_list(void)
 {
 	t_list	*lst;
 
 	lst = (t_list *)malloc(sizeof(t_list));
 	if (!lst)
-		m_exit(-1, var);
+		list_less_exit();
 	lst->be = NULL;
 	lst->end = NULL;
 	lst->length = 0;
@@ -44,12 +44,12 @@ t_list	*make_list(t_var *var)
 	int		i;
 
 	i = 0;
-	lst = new_list(var);
+	lst = new_list();
 	if (var->size > 0)
 	{
 		while (i < var->size)
 		{	
-			lstadd_back(var, lst, var->tab[i]);
+			lstadd_back(lst, var->tab[i]);
 			i++;
 		}
 	}

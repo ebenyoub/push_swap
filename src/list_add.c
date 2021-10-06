@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 13:17:47 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 18:53:52 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:51:48 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	lstadd_front(char c, t_var *var, t_node *new)
 	}
 }
 
-void	lstadd_back(t_var *var, t_list *lst, int nb)
+void	lstadd_back(t_list *lst, int nb)
 {
 	t_node	*new;
 
-	new = new_element(nb, var);
+	new = new_element(nb);
 	if (new)
 	{
 		if (lst->be == NULL)

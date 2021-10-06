@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 00:27:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:19:29 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:53:15 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rev_rra(t_var *var)
 
 	if (!(var->la->be) || !(var->la->be->next))
 		return ;
-	tmp = new_element(var->la->end->nb, var);
+	tmp = new_element(var->la->end->nb);
 	lstpop_back('a', var);
 	lstadd_front('a', var, tmp);
 	if (!var->flag)
@@ -34,7 +34,7 @@ void	rev_rrb(t_var *var)
 
 	if (!var->lb->be || !var->lb->be->next)
 		return ;
-	tmp = new_element(var->lb->end->nb, var);
+	tmp = new_element(var->lb->end->nb);
 	lstpop_back('b', var);
 	lstadd_front('b', var, tmp);
 	if (!var->flag)
@@ -46,10 +46,10 @@ void	rev_rrb(t_var *var)
 
 void	rev_rrr(t_var *var)
 {
-	var->flag = true;
+	var->flag = TRUE;
 	rev_rra(var);
 	rev_rrb(var);
-	var->flag = false;
+	var->flag = FALSE;
 	ft_putstr("rrr\n");
 	var->tap++;
 }

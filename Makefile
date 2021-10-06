@@ -6,7 +6,7 @@
 #    By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/15 21:16:19 by ebenyoub          #+#    #+#              #
-#    Updated: 2021/10/05 15:23:22 by ebenyoub         ###   ########lyon.fr    #
+#    Updated: 2021/10/06 16:26:08 by ebenyoub         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,6 @@ INC = ./inc/
 BUILDDIR = ./build/
 BUILDOBJS = $(addprefix $(BUILDDIR), $(SRCNAMES:.c=.o))
 
-LIBDIR = ./libft/
-LIBFT = ./libft/libft.a
-LIBINC = ./libft/libft.h
-
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra
 
@@ -33,16 +29,13 @@ $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
 $(BUILDDIR)%.o:$(SRCDIR)%.c
-	$(CC) $(CFLAGS) -I$(LIBINC) -I$(INC) -o $@ -c $<
+	$(CC) $(CFLAGS) -I$(INC) -o $@ -c $<
 
 $(NAME): $(BUILDOBJS)
 	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $(BUILDOBJS)
 
-$(LIBFT):
-	make -C $(LIBDIR)
-
 clean:
-	rm -rf $(BUILDDIR) push_swap.dSYM
+	rm -rf $(BUILDDIR) push_swap.dSYM .vscode
 
 fclean: clean
 	rm -rf $(NAME)

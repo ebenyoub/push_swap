@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 14:23:40 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:51:48 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <stdbool.h>
+
+# define TRUE	1
+# define FALSE	0
 
 typedef struct s_node
 {
@@ -46,10 +48,10 @@ typedef struct s_var
 	int				part;
 	int				nb;
 	int				last_chunk_size;
-	bool			last_chunk_flag;
+	uint8_t			last_chunk_flag;
 	int				**chunk_tabs;
-	bool			flag;
-	bool			alt;
+	uint8_t			flag;
+	uint8_t			alt;
 	int				len;
 	struct s_list	*la;
 	struct s_list	*lb;
@@ -95,6 +97,7 @@ void	free_tab(int **tab, t_var *var);
 void	free_list(t_var *var);
 void	push_free(t_var *var);
 void	m_exit(int err, t_var *var);
+void	list_less_exit(void);
 void	secure_malloc(void *obj, t_var *var);
 
 void	swp_sa(t_var *var);
@@ -119,15 +122,15 @@ void	q_rev(t_var *var);
 ********* LIST *********
 */
 
-t_node	*new_element(int nb, t_var *var);
-t_list	*new_list(t_var *var);
+t_node	*new_element(int nb);
+t_list	*new_list(void);
 t_list	*make_list(t_var *var);
 void	lstpop_front(char c, t_var *var);
 void	lstpop_back(char c, t_var *var);
 void	lstadd_front(char c, t_var *var, t_node *new);
-void	lstadd_back(t_var *var, t_list *lst, int nb);
+void	lstadd_back(t_list *lst, int nb);
 void	print_lst(t_node *lst);
-bool	is_sorted_lst(t_node *lst);
+uint8_t	is_sorted_lst(t_node *lst);
 
 t_list	*a_or_b(char c, t_var *var);
 t_node	*q_a_or_b(char start, t_var *var);

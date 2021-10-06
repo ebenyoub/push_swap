@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:59:23 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:59:46 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:24:09 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	nbr_four(t_var *var)
 {
-	bool	i;
+	uint8_t	i;
 
-	i = false;
+	i = FALSE;
 	if ((var->lb->be->nb) < (var->la->be->next->nb))
 	{
 		psh_pa(var);
@@ -28,7 +28,7 @@ void	nbr_four(t_var *var)
 		if (var->lb->be->nb < var->la->end->nb)
 		{
 			rev_rra(var);
-			i = true;
+			i = TRUE;
 		}
 		psh_pa(var);
 		rot_ra(var);

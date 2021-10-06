@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:52:48 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 13:07:48 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:01:40 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	create_chunks(t_var *var)
 	n = 0;
 	if (var->size % var->part > 0)
 	{
-		var->last_chunk_flag = true;
+		var->last_chunk_flag = TRUE;
 		var->part = var->part + 1;
 	}
 	var->chunk_tabs = (int **)malloc(sizeof(int *) * var->part);

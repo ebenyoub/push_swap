@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:45:05 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:17:08 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:01:50 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	swp_sb(t_var *var)
 
 void	swp_ss(t_var *var)
 {
-	var->flag = true;
+	var->flag = TRUE;
 	swp_sa(var);
 	swp_sb(var);
-	var->flag = false;
+	var->flag = FALSE;
 	ft_putstr("ss\n");
 	var->tap++;
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:26:18 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 14:29:53 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 15:36:06 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ void	push_free(t_var *var)
 		free(var->index);
 	var->tab = NULL;
 	var->index = NULL;
+}
+
+void	list_less_exit(void)
+{
+	ft_putstr("Error\n");
+	exit (EXIT_FAILURE);
 }
 
 void	m_exit(int err, t_var *var)
