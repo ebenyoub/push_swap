@@ -6,13 +6,13 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:42:51 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 15:24:09 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 16:29:28 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-uint8_t	is_in_chunk(int nb, int c, t_var *var)
+u_int8_t	is_in_chunk(int nb, int c, t_var *var)
 {
 	int		i;
 	int		size;

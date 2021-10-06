@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:59:23 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 15:24:09 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 16:29:28 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	nbr_four(t_var *var)
 {
-	uint8_t	i;
+	u_int8_t	i;
 
 	i = FALSE;
 	if ((var->lb->be->nb) < (var->la->be->next->nb))

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 15:51:48 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 16:29:49 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ typedef struct s_var
 	int				part;
 	int				nb;
 	int				last_chunk_size;
-	uint8_t			last_chunk_flag;
+	u_int8_t		last_chunk_flag;
 	int				**chunk_tabs;
-	uint8_t			flag;
-	uint8_t			alt;
+	u_int8_t		flag;
+	u_int8_t		alt;
 	int				len;
 	struct s_list	*la;
 	struct s_list	*lb;
@@ -130,7 +130,7 @@ void	lstpop_back(char c, t_var *var);
 void	lstadd_front(char c, t_var *var, t_node *new);
 void	lstadd_back(t_list *lst, int nb);
 void	print_lst(t_node *lst);
-uint8_t	is_sorted_lst(t_node *lst);
+u_int8_t	is_sorted_lst(t_node *lst);
 
 t_list	*a_or_b(char c, t_var *var);
 t_node	*q_a_or_b(char start, t_var *var);
