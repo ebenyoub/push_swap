@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:59:04 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 14:23:40 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <limits.h>
 # include <stdbool.h>
 
 typedef struct s_node
@@ -65,7 +64,7 @@ void	ft_putstr(char *str);
 void	ft_putnbr(int n);
 int		ft_isdigit(int c);
 void	ft_free_tab(char ***tab);
-int		ft_atoi(const char *str, t_var *var);
+long	ft_atoi(const char *str);
 int		ft_strlen(char *str);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(char *s1);

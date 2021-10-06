@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:18:53 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 13:14:46 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static void	param_chekin(t_var *var, int argc, char **argv)
 {
 	int	a;
 	int	i;
+	int	r;
 
 	a = 1;
+	r = 0;
 	while (a < argc)
 	{
 		i = 0;

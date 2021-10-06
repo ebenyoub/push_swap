@@ -6,11 +6,17 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:42:56 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/04 18:38:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 14:36:54 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	atoi_exit(void)
+{
+	ft_putstr("Error atoi\n");
+	exit (EXIT_FAILURE);
+}
 
 int	ft_isdigit(int c)
 {
@@ -19,7 +25,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *str, t_var *var)
+long	ft_atoi(const char *str)
 {
 	long		i;
 	long		sign;
@@ -38,9 +44,10 @@ int	ft_atoi(const char *str, t_var *var)
 	while (ft_isdigit(str[i]) == 1)
 	{
 		result = result * 10 + (str[i] - 48);
-		if (result > INT_MAX || result < INT_MIN)
-			m_exit(-1, var);
 		i++;
 	}
-	return (result * sign);
+	result *= sign;
+	if (result > 2147483647 || result < -2147483648)
+		atoi_exit();
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:52:48 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/05 15:19:14 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/06 13:07:48 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	create_tab(char **param, t_var *var)
 		m_exit(-1, var);
 	while (i < var->size)
 	{
-		var->tab[i] = ft_atoi((const char *)param[i], var);
+		var->tab[i] = ft_atoi((const char *)param[i]);
 		var->index[i] = var->tab[i];
 		i++;
 	}
