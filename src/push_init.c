@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/08 12:33:25 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/08 13:05:11 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ void	param_init(int argc, char **argv, t_var *var)
 		var->chunk_len = var->size / 11;
 	}
 	param_init_next(param, var);
-	free_tab_char(param);
+	if (argc == 2)
+		free_tab_char(param);
 }
