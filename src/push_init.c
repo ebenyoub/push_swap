@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:14:29 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 15:46:12 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/08 11:38:33 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	param_chekin(int argc, char **argv)
 	int	a;
 	int	i;
 
-	a = 1;
+	a = 0;
 	while (a < argc)
 	{
 		i = 0;
@@ -33,18 +33,18 @@ static void	param_chekin(int argc, char **argv)
 	}
 }
 
-static void	param_duplicate(int argc, char **argv)
+static void	param_duplicate(int size, int *tab)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while (argv[j] && j < argc)
+	while (j < size)
 	{
-		i = 1 + j;
-		while (argv[i] && i < argc)
+		i = j + 1;
+		while (i < size)
 		{
-			if (!ft_strcmp(argv[i], argv[j]))
+			if (tab[i] == tab[j])
 				list_less_exit();
 			i++;
 		}
@@ -78,7 +78,7 @@ static void	param_init_next(char **param, t_var *var)
 	var->nb = 0;
 	create_tab(param, var);
 	param_chekin(var->size, param);
-	param_duplicate(var->size, param);
+	param_duplicate(var->size, var->tab);
 	var->la = make_list(var);
 	var->lb = new_list();
 	create_chunks(var);

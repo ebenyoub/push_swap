@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:42:56 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 14:36:54 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/08 11:11:45 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	atoi_exit(void)
 {
-	ft_putstr("Error atoi\n");
+	ft_putstr("Error\n");
 	exit (EXIT_FAILURE);
 }
 
