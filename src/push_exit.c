@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:26:18 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 15:36:06 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/08 12:33:02 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@ void	free_tab(int **tab, t_var *var)
 	{
 		if (tab[i])
 			free(tab[i]);
+		i++;
+	}
+	if (tab)
+		free(tab);
+}
+
+void	free_tab_char(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		if (tab[i])
+		{
+			free(tab[i]);
+			tab[i] = NULL;
+		}
 		i++;
 	}
 	if (tab)

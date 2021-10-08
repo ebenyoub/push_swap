@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 16:17:26 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 15:39:09 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/08 12:27:28 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,10 @@ char	**ft_split(char *str)
 	}
 	i = word_len(str);
 	tab = cpy_words(str, i);
+	if (tab == NULL)
+	{
+		ft_putstr("Error\n");
+		exit (EXIT_FAILURE);
+	}
 	return (tab);
 }

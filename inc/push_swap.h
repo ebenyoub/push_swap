@@ -6,7 +6,7 @@
 /*   By: ebenyoub <ebenyoub@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 00:05:00 by ebenyoub          #+#    #+#             */
-/*   Updated: 2021/10/06 16:47:30 by ebenyoub         ###   ########lyon.fr   */
+/*   Updated: 2021/10/08 12:33:00 by ebenyoub         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void		create_chunks(t_var *var);
 void		create_tab(char **param, t_var *var);
 void		sort_big(t_var *var);
 
+void		free_tab_char(char **tab);
 void		free_tab(int **tab, t_var *var);
 void		free_list(t_var *var);
 void		push_free(t_var *var);
